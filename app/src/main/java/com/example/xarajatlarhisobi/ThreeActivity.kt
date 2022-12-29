@@ -4,15 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
-import com.example.xarajatlarhisobi.databinding.ActivityTwoBinding
+import com.example.xarajatlarhisobi.databinding.ActivityHomeBinding
+import com.example.xarajatlarhisobi.databinding.ActivityThreeBinding
 
-class TwoActivity : AppCompatActivity() {
+class ThreeActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityTwoBinding
+    lateinit var binding: ActivityThreeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTwoBinding.inflate(layoutInflater, null, false)
+        binding = ActivityThreeBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
 
         supportActionBar!!.hide()
@@ -21,7 +22,7 @@ class TwoActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        binding.bottomNavigationView.selectedItemId = R.id.plusMenu
+        binding.bottomNavigationView.selectedItemId = R.id.statistikaMenu
 
         binding.bottomNavigationView.setOnItemSelectedListener {
 
@@ -31,7 +32,6 @@ class TwoActivity : AppCompatActivity() {
 
 
                 R.id.homeMenu -> {
-
 
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
                     overridePendingTransition(0, 0)
@@ -50,6 +50,8 @@ class TwoActivity : AppCompatActivity() {
 
                 R.id.plusMenu-> {
 
+                    startActivity(Intent(applicationContext, TwoActivity::class.java))
+                    overridePendingTransition(0, 0)
                     true
 
                 }
@@ -57,8 +59,6 @@ class TwoActivity : AppCompatActivity() {
 
                 R.id.statistikaMenu -> {
 
-                    startActivity(Intent(applicationContext, ThreeActivity::class.java))
-                    overridePendingTransition(0, 0)
                     true
 
                 }
@@ -80,6 +80,8 @@ class TwoActivity : AppCompatActivity() {
         }
 
     }
+
+
 
 
 }

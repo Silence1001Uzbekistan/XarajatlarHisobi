@@ -46,9 +46,28 @@ class HomeActivity : AppCompatActivity() {
 
                 }
 
-                R.id.infoMenu -> {
+                R.id.plusMenu-> {
 
                     startActivity(Intent(applicationContext, TwoActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+
+                }
+
+
+                R.id.statistikaMenu -> {
+
+                    startActivity(Intent(applicationContext, ThreeActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+
+                }
+
+
+                R.id.infoMenu -> {
+
+
+                    startActivity(Intent(applicationContext, FourActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
 
@@ -63,8 +82,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
 
-    override fun onSupportNavigateUp(): Boolean {
-        return Navigation.findNavController(this, R.id.my_nav_host_fragment).navigateUp()
-    }
+
 
 }

@@ -34,24 +34,44 @@ class OneActivity : AppCompatActivity(),View.OnClickListener {
             when (id) {
 
 
-                R.id.calculateMenu -> {
-
-                    true
-
-
-                }
-
                 R.id.homeMenu -> {
 
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
 
+
                 }
+
+                R.id.calculateMenu -> {
+
+
+                    true
+
+                }
+
+                R.id.plusMenu-> {
+
+                    startActivity(Intent(applicationContext, TwoActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+
+                }
+
+
+                R.id.statistikaMenu -> {
+
+                    startActivity(Intent(applicationContext, ThreeActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+
+                }
+
 
                 R.id.infoMenu -> {
 
-                    startActivity(Intent(applicationContext, TwoActivity::class.java))
+
+                    startActivity(Intent(applicationContext, FourActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
 
