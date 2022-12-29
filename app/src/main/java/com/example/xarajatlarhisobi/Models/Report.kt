@@ -13,7 +13,7 @@ class Report {
     var produvtName: String? = null
     var productPrice: String? = null
     var productCommet: String? = null
-    var productImage:Int? = null
+    var productImage:String? = null
 
 
 }
