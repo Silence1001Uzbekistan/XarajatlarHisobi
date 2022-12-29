@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.xarajatlarhisobi.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_fourFragment"
+            app:destination="@id/fourFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_fiveFragment"
+            app:destination="@id/fiveFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_sixFragment"
+            app:destination="@id/sixFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_sevenFragment"
+            app:destination="@id/sevenFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_eightFragment"
+            app:destination="@id/eightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.xarajatlarhisobi.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" />
+    <fragment
+        android:id="@+id/fourFragment"
+        android:name="com.example.xarajatlarhisobi.FourFragment"
+        android:label="fragment_four"
+        tools:layout="@layout/fragment_four" />
+    <fragment
+        android:id="@+id/fiveFragment"
+        android:name="com.example.xarajatlarhisobi.FiveFragment"
+        android:label="fragment_five"
+        tools:layout="@layout/fragment_five" />
+    <fragment
+        android:id="@+id/sixFragment"
+        android:name="com.example.xarajatlarhisobi.SixFragment"
+        android:label="fragment_six"
+        tools:layout="@layout/fragment_six" />
+    <fragment
+        android:id="@+id/sevenFragment"
+        android:name="com.example.xarajatlarhisobi.SevenFragment"
+        android:label="fragment_seven"
+        tools:layout="@layout/fragment_seven" />
+    <fragment
+        android:id="@+id/eightFragment"
+        android:name="com.example.xarajatlarhisobi.EightFragment"
+        android:label="fragment_eight"
+        tools:layout="@layout/fragment_eight" />
+</navigation>

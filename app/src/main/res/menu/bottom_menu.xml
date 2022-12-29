@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeMenu"
+        android:icon="@drawable/ic_home"
+        android:title="Asosiy" />
+
+    <item
+        android:id="@+id/calculateMenu"
+        android:icon="@drawable/ic_calculate"
+        android:title="Kalkulayator" />
+
+    <item
+        android:id="@+id/plusMenu"
+        android:icon="@drawable/ic_add_business"
+        android:title="Plus" />
+
+    <item
+        android:id="@+id/statistikaMenu"
+        android:icon="@drawable/ic_statistics"
+        android:title="Statistika" />
+
+
+
+    <item
+        android:id="@+id/infoMenu"
+        android:icon="@drawable/ic_info"
+        android:title="Talaba haqida" />
+
+
+</menu>
