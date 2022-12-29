@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="viloyat1">
+        <item>Metal mahsulotlari</item>
+        <item>Yogoch mahsulotlari</item>
+        <item>Fonar va Yoritgichlar</item>
+        <item>Lak-bo"yoq mahsulotlari</item>
+        <item>Qurilish quvurlari</item>
+        <item>Tom yopish materiallari</item>
+        <item>Devor terish materiallari</item>
+        <item>Isitgichlar</item>
+        <item>Quruq qurilish aralashmalari</item>
+        <item>Zinapoyalar</item>
+        <item>Gigroizolatsiyali materiallar</item>
+        <item>Temirbeton mahsulotlari</item>
+        <item>Germitiklar</item>
+        <item>Panjaralar</item>
+        <item>Shisha qurilish mahsulotlari</item>
+        <item>Metal konsturksiyalar</item>
+        <item>Devorlar va to"siqlar</item>
+        <item>Suyuq qurilish mahsulotlari</item>
+        <item>Qurilish montaj kopiklari</item>
+        <item>Quyma qurilish materiallari</item>
+        <item>Himoyalovchi materiallar</item>
+        <item>Shovqin izolatsiyasi materiallari</item>
+        <item>Qurilish uchun kimyoviy vositalar</item>
+        <item>Polyureya</item>
+    </string-array>
+
+
+</resources>

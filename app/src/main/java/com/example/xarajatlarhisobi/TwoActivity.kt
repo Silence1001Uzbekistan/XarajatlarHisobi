@@ -4,11 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import com.example.xarajatlarhisobi.Database.AppDatabase
+import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityTwoBinding
+import com.google.android.material.snackbar.Snackbar
 
 class TwoActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityTwoBinding
+    lateinit var appDatabase: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +52,7 @@ class TwoActivity : AppCompatActivity() {
 
                 }
 
-                R.id.plusMenu-> {
+                R.id.plusMenu -> {
 
                     true
 
@@ -78,6 +82,48 @@ class TwoActivity : AppCompatActivity() {
 
             false
         }
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        var report = Report()
+
+        appDatabase = AppDatabase.getInstance(this)
+
+        binding.productImageId.setOnClickListener {
+
+
+
+        }
+
+        binding.productSave.setOnClickListener {
+
+            if (binding.objectNameId.text.trim().isNotEmpty() && binding.productNameId.text.trim()
+                    .isNotEmpty() && binding.productPriceId.text.trim()
+                    .isNotEmpty()
+            ) {
+
+                report.objectName = binding.objectNameId.text.toString()
+                report.productType = binding.productTypeId.selectedItemPosition
+                report.produvtName = binding.productNameId.text.toString()
+                report.productPrice = binding.productPriceId.text.toString()
+                report.productCommet = binding.productCommentId.text.toString()
+
+
+                appDatabase.citizenDao().addReport(report)
+                Snackbar.make(it, "Ma'lumotlar kiritildi", 3000).show()
+
+            } else {
+
+                Snackbar.make(it, "Zarur ma'lumotlarni kiriting", 3000).show()
+
+            }
+
+        }
+
 
     }
 
