@@ -136,6 +136,9 @@ class TwoActivity : AppCompatActivity() {
 
         }
 
+
+
+
         binding.productSave.setOnClickListener {
 
             if (binding.objectNameId.text.trim().isNotEmpty() && binding.productNameId.text.trim()
