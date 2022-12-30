@@ -2,9 +2,10 @@ package com.example.xarajatlarhisobi.Models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
-class Report {
+class Report:Serializable {
 
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null

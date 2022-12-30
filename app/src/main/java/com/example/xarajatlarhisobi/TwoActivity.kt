@@ -27,6 +27,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.jvm.Throws
 
 class TwoActivity : AppCompatActivity() {
@@ -42,36 +43,6 @@ class TwoActivity : AppCompatActivity() {
         binding = ActivityTwoBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
 
-        Dexter.withContext(this)
-            .withPermissions(
-                Manifest.permission.CAMERA,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-            ).withListener(object : MultiplePermissionsListener {
-                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-
-                    Toast.makeText(
-                        this@TwoActivity,
-                        "Rasmlarga kirishga ruxsat berildi",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-
-                }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permissions: List<PermissionRequest?>?,
-                    token: PermissionToken?
-                ) {
-
-                    Toast.makeText(
-                        this@TwoActivity,
-                        "Rasmlarga kirishga ruxsat bermadinggiz ",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    finish()
-
-                }
-            }).check()
 
         supportActionBar!!.hide()
         window.setFlags(
@@ -138,12 +109,16 @@ class TwoActivity : AppCompatActivity() {
         }
 
 
+
+
     }
 
     override fun onResume() {
         super.onResume()
 
         var report = Report()
+
+
 
         appDatabase = AppDatabase.getInstance(this)
 
@@ -175,8 +150,15 @@ class TwoActivity : AppCompatActivity() {
                 report.productCommet = binding.productCommentId.text.toString()
 
 
-                appDatabase.citizenDao().addReport(report)
-                Snackbar.make(it, "Ma'lumotlar kiritildi", 3000).show()
+                report.productImage = Uri.fromFile(File(currentImagePath)).toString()
+
+
+                Toast.makeText(this, Uri.fromFile(File(currentImagePath)).toString(), Toast.LENGTH_SHORT).show()
+
+                appDatabase.reportDao().addReport(report)
+                //Snackbar.make(it, "Ma'lumotlar kiritildi", 1500).show()
+
+                startActivity(Intent(applicationContext, HomeActivity::class.java))
 
             } else {
 

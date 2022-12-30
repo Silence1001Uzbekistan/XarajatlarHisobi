@@ -14,6 +14,7 @@ import com.example.movieapproomsql.Adapter.ReportAdapter
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityHomeBinding
+import com.example.xarajatlarhisobi.databinding.MyDialogBinding
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -32,6 +33,38 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
+
+        Dexter.withContext(this)
+            .withPermissions(
+                Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+            ).withListener(object : MultiplePermissionsListener {
+                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
+
+                    Toast.makeText(
+                        this@HomeActivity,
+                        "Rasmlarga kirishga ruxsat berildi",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    permissions: List<PermissionRequest?>?,
+                    token: PermissionToken?
+                ) {
+
+                    Toast.makeText(
+                        this@HomeActivity,
+                        "Rasmlarga kirishga ruxsat bermadinggiz ",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    finish()
+
+                }
+            }).check()
+
 
         appDatabase = AppDatabase.getInstance(this)
 
@@ -106,63 +139,57 @@ class HomeActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        list = appDatabase.citizenDao().getAllReport() as ArrayList<Report>
+        list = appDatabase.reportDao().getAllReport() as ArrayList<Report>
 
         reportAdapter = ReportAdapter(list, object : ReportAdapter.OnMyItemClickListener {
             override fun itemClick(report: Report) {
 
-/*                val bundle = Bundle()
-                bundle.putInt("id", movie.id!!)
+                val intent = Intent(this@HomeActivity, ShowActivity::class.java)
+                intent.putExtra("id", report.id)
+                intent.putExtra("full",report.productImage)
+                startActivity(intent)
 
-                findNavController().navigate(R.id.showFragment, bundle)*/
 
             }
 
             override fun itemCLickChange(report: Report, position: Int) {
 
-/*
-                val bundle = Bundle()
-                bundle.putInt("id", movie.id!!)
-                bundle.putInt("a", position)
-
-
-                val dialog = AlertDialog.Builder(context)
+                val dialog = AlertDialog.Builder(this@HomeActivity)
                 val myDialogBinding = MyDialogBinding.inflate(layoutInflater, null, false)
 
-                myDialogBinding.nameEt.setText(movie.movieName)
-                myDialogBinding.authorsEt.setText(movie.movieAuthors)
-                myDialogBinding.aboutEt.setText(movie.movieAbout)
-                myDialogBinding.dateEt.setText(movie.movieDate)
+                myDialogBinding.nameEt.setText(report.objectName)
+                myDialogBinding.authorsEt.setText(report.produvtName)
+                myDialogBinding.aboutEt.setText(report.productCommet)
+                myDialogBinding.dateEt.setText(report.productPrice)
 
                 dialog.setView(myDialogBinding.root)
 
                 dialog.setPositiveButton("Edit", object : DialogInterface.OnClickListener {
                     override fun onClick(p0: DialogInterface?, p1: Int) {
 
-                        movie.movieName = myDialogBinding.nameEt.text.toString()
-                        movie.movieAuthors = myDialogBinding.authorsEt.text.toString()
-                        movie.movieAbout = myDialogBinding.aboutEt.text.toString()
-                        movie.movieDate = myDialogBinding.dateEt.text.toString()
+                        report.objectName = myDialogBinding.nameEt.text.toString()
+                        report.produvtName = myDialogBinding.authorsEt.text.toString()
+                        report.productCommet = myDialogBinding.aboutEt.text.toString()
+                        report.productPrice = myDialogBinding.dateEt.text.toString()
 
-                        appDatabase.movieDao().updateMovie(movie)
-                        list[position] = movie
-                        movieAdapter.notifyItemChanged(position)
+                        appDatabase.reportDao().updateReport(report)
+                        list[position] = report
+                        reportAdapter.notifyItemChanged(position)
 
                     }
 
                 })
 
                 dialog.show()
-*/
 
             }
 
             override fun itemClickDelete(report: Report, position: Int) {
 
-/*                appDatabase.movieDao().deleteMovie(movie)
-                list.remove(movie)
-                movieAdapter.notifyItemRemoved(list.size)
-                movieAdapter.notifyItemRangeRemoved(position, list.size)*/
+                appDatabase.reportDao().deleteReport(report)
+                list.remove(report)
+                reportAdapter.notifyItemRemoved(list.size)
+                reportAdapter.notifyItemRangeRemoved(position, list.size)
 
             }
 

@@ -10,7 +10,7 @@ import com.example.xarajatlarhisobi.Models.Report
 @Database(entities = [Report::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun citizenDao(): ReportDao
+    abstract fun reportDao(): ReportDao
 
 
     companion object {
