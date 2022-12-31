@@ -16,5 +16,7 @@ class Report:Serializable {
     var productCommet: String? = null
     var productImage:String? = null
 
+    var productDate:String? = null
+
 
 }

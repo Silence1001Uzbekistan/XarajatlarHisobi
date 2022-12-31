@@ -17,6 +17,8 @@ class ReportAdapter(var list: ArrayList<Report>, var onMyItemClickListener: OnMy
             rvItemBinding.authorsRv.text = report.produvtName
             rvItemBinding.dateRv.text = report.productPrice
 
+            rvItemBinding.dateHome.text = report.productDate
+
             rvItemBinding.editRv.setOnClickListener {
 
                 onMyItemClickListener.itemCLickChange(report, position)

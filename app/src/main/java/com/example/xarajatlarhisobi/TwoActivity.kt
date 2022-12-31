@@ -2,8 +2,10 @@ package com.example.xarajatlarhisobi
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -11,6 +13,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import androidx.navigation.fragment.findNavController
 import com.example.xarajatlarhisobi.Database.AppDatabase
@@ -114,6 +117,7 @@ class TwoActivity : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onResume() {
         super.onResume()
 
@@ -146,7 +150,7 @@ class TwoActivity : AppCompatActivity() {
 
             if (binding.objectNameId.text.trim().isNotEmpty() && binding.productNameId.text.trim()
                     .isNotEmpty() && binding.productPriceId.text.trim()
-                    .isNotEmpty()
+                    .isNotEmpty() && binding.studentDateEt.text.trim().isNotEmpty()
             ) {
 
                 report.objectName = binding.objectNameId.text.toString()
@@ -158,6 +162,7 @@ class TwoActivity : AppCompatActivity() {
 
                 report.productImage = Uri.fromFile(File(currentImagePath)).toString()
 
+                report.productDate = binding.studentDateEt.text.toString().trim()
 
 
                 appDatabase.reportDao().addReport(report)
@@ -173,6 +178,17 @@ class TwoActivity : AppCompatActivity() {
                 Snackbar.make(it, "Zarur ma'lumotlarni kiriting", 3000).show()
 
             }
+
+        }
+
+        binding.studentDateEt.setOnClickListener {
+
+
+            var dataPickerDialog = DatePickerDialog(this)
+            dataPickerDialog.setOnDateSetListener { p0, p1, p2, p3 ->
+                binding.studentDateEt.text = "$p3.${p2 + 1}.$p1"
+            }
+            dataPickerDialog.show()
 
         }
 

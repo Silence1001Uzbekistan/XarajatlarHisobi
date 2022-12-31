@@ -147,6 +147,7 @@ class HomeActivity : AppCompatActivity() {
                 val intent = Intent(this@HomeActivity, ShowActivity::class.java)
                 intent.putExtra("id", report.id)
                 intent.putExtra("full",report.productImage)
+                intent.putExtra("date",report.productDate)
                 startActivity(intent)
 
 

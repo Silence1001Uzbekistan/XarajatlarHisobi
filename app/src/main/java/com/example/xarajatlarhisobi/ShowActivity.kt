@@ -44,6 +44,7 @@ class ShowActivity : AppCompatActivity() {
         val id = intent.extras!!.getInt("id")
         val serializable = intent.extras!!.getString("full")
 
+        val date = intent.extras!!.getString("date")
 
         val reportById = appDatabase.reportDao().getReportById(id!!)
 
@@ -54,6 +55,9 @@ class ShowActivity : AppCompatActivity() {
         binding.productPrice.text = reportById.productPrice
         binding.productComment.text = reportById.productCommet
 
+        binding.objectDate.text = date
+
+        Toast.makeText(this, "$date", Toast.LENGTH_SHORT).show()
 
         binding.productImage.setImageURI(Uri.parse(serializable))
 
