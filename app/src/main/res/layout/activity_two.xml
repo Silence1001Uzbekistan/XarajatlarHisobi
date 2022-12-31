@@ -6,123 +6,148 @@
     android:layout_height="match_parent"
     tools:context=".TwoActivity">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:padding="10dp"
-        android:id="@+id/linearTwoActivity"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/objectNameId"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:hint="Obyekt nomini kiriting"
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@id/productTypeId"
-            app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.1" />
-
-        <Spinner
-            android:id="@+id/productTypeId"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:entries="@array/viloyat1"
-            app:layout_constraintBottom_toTopOf="@id/productNameId"
-            app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/objectNameId"
-            app:layout_constraintVertical_bias="0.2" />
-
-        <EditText
-            android:id="@+id/productNameId"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:hint="Mahsulot nomini kiriting"
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@id/productPriceId"
-            app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/productTypeId"
-            app:layout_constraintVertical_bias="0.3" />
-
-        <EditText
-            android:id="@+id/productPriceId"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:hint="Mahsulot narxini kiriting"
-            android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@id/productCommentId"
-            app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/productNameId"
-            app:layout_constraintVertical_bias="0.4" />
-
-        <EditText
-            android:id="@+id/productCommentId"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:hint="Commentariya kiritishinggiz mumkin"
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@id/productImageId"
-            app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/productPriceId"
-            app:layout_constraintVertical_bias="0.5" />
-
-        <ImageView
-            android:id="@+id/productImageId"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:src="@drawable/ironicon"
-            app:layout_constraintBottom_toTopOf="@id/productSave"
-            app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/productCommentId"
-            app:layout_constraintVertical_bias="0.6" />
-
-        <Button
-            android:id="@+id/productSave"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/productImageId"
-            app:layout_constraintVertical_bias="0.7" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bottom_navigation"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu" />
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearTwoActivity"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/objectNameId"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/roundedit"
+                    android:gravity="center"
+                    android:hint="Obyekt nomini kiriting"
+                    android:textColorHint="#0277BD"
+                    android:inputType="text"
+                    app:layout_constraintBottom_toTopOf="@id/productTypeId"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.1" />
+
+                <Spinner
+                    android:id="@+id/productTypeId"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/roundedit"
+                    android:entries="@array/viloyat1"
+                    app:layout_constraintBottom_toTopOf="@id/productNameId"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/objectNameId"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <EditText
+                    android:id="@+id/productNameId"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/roundedit"
+                    android:gravity="center"
+                    android:hint="Mahsulot nomini kiriting"
+                    android:inputType="text"
+                    android:textColorHint="#0277BD"
+                    app:layout_constraintBottom_toTopOf="@id/productPriceId"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productTypeId"
+                    app:layout_constraintVertical_bias="0.3" />
+
+                <EditText
+                    android:id="@+id/productPriceId"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/roundedit"
+                    android:gravity="center"
+                    android:textColorHint="#0277BD"
+                    android:hint="Mahsulot narxini kiriting"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toTopOf="@id/productCommentId"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productNameId"
+                    app:layout_constraintVertical_bias="0.4" />
+
+                <EditText
+                    android:id="@+id/productCommentId"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/roundedit"
+                    android:gravity="center"
+                    android:textColorHint="#0277BD"
+                    android:hint="Commentariya kiritishinggiz mumkin"
+                    android:inputType="text"
+                    app:layout_constraintBottom_toTopOf="@id/productImageId"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productPriceId"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <ImageView
+                    android:id="@+id/productImageId"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/roundedit"
+                    android:src="@drawable/ironicon"
+                    app:layout_constraintBottom_toTopOf="@id/productSave"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productCommentId"
+                    app:layout_constraintVertical_bias="0.6" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/productSave"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productImageId"
+                    app:layout_constraintVertical_bias="0.7"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/savetwo" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_navigation"
+                app:itemIconTint="@color/black"
+                app:itemTextColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/bottom_menu" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

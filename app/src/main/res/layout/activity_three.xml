@@ -6,29 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".ThreeActivity">
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/rv_two_item" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bottom_navigation"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu" />
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lavOne"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/fonstatistika" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textStatistika"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/rv"
+                android:text="Statistika"
+                android:textSize="30sp"
+                android:textColor="#00838F"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textStatistika"
+                tools:listitem="@layout/rv_two_item" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_navigation"
+                app:itemIconTint="@color/black"
+                app:itemTextColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/bottom_menu" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

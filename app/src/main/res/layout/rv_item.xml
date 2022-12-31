@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:background="@drawable/rv_border"
+    android:background="@drawable/roundedittwo"
     android:orientation="vertical"
     android:padding="8dp">
 
@@ -15,6 +15,7 @@
 
         <TextView
             android:id="@+id/nameRv"
+            android:fontFamily="@font/redokaneegular"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -23,6 +24,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:fontFamily="@font/redokaneegular"
             android:id="@+id/dateRv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,7 +32,7 @@
             android:gravity="center"
             android:maxLines="1"
             android:text="@string/app_name"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -42,6 +44,7 @@
 
         <TextView
             android:id="@+id/authorsRv"
+            android:fontFamily="@font/redokaneegular"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="left"
@@ -60,9 +63,11 @@
 
         <Button
             android:id="@+id/editRv"
+            android:background="#F9A825"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit"
+            android:fontFamily="@font/redokaneegular"
             android:textAllCaps="false" />
 
         <Button
@@ -71,6 +76,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Delete"
+            android:background="#F9A825"
+            android:fontFamily="@font/redokaneegular"
             android:textAllCaps="false" />
 
     </LinearLayout>

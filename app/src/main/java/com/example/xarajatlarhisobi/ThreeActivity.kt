@@ -7,6 +7,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
 import com.example.movieapproomsql.Adapter.ReportAdapter
 import com.example.movieapproomsql.Adapter.ReportTwoAdapter
 import com.example.xarajatlarhisobi.Database.AppDatabase
@@ -14,6 +15,7 @@ import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityHomeBinding
 import com.example.xarajatlarhisobi.databinding.ActivityThreeBinding
 import com.example.xarajatlarhisobi.databinding.MyDialogBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlin.math.max
 
 class ThreeActivity : AppCompatActivity() {
@@ -108,10 +110,9 @@ class ThreeActivity : AppCompatActivity() {
 
         list = appDatabase.reportDao().getAllReport() as ArrayList<Report>
 
-        list.sortBy {
+        list.sortedBy {
             it.productPrice
         }
-
 
         reportTwoAdapter = ReportTwoAdapter(list)
 

@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -134,6 +135,8 @@ class TwoActivity : AppCompatActivity() {
 
             getTakeImageContent.launch(photoURI)
 
+            binding.productSave.visibility = View.VISIBLE
+
         }
 
 
@@ -156,12 +159,14 @@ class TwoActivity : AppCompatActivity() {
                 report.productImage = Uri.fromFile(File(currentImagePath)).toString()
 
 
-                Toast.makeText(this, Uri.fromFile(File(currentImagePath)).toString(), Toast.LENGTH_SHORT).show()
 
                 appDatabase.reportDao().addReport(report)
-                //Snackbar.make(it, "Ma'lumotlar kiritildi", 1500).show()
+
 
                 startActivity(Intent(applicationContext, HomeActivity::class.java))
+
+                Snackbar.make(it, "Ma'lumotlar kiritildi", 1500).show()
+
 
             } else {
 
