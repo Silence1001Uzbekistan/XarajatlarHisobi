@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
@@ -29,6 +30,12 @@ class ShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityShowBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
+
+        supportActionBar!!.hide()
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         appDatabase = AppDatabase.getInstance(this)
 
