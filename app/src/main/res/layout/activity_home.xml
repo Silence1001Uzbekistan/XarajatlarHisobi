@@ -15,8 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/fonhome" />
+            app:lottie_loop="true" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,10 +26,10 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
                 app:reverseLayout="true"
                 app:stackFromEnd="true"
                 tools:listitem="@layout/rv_item" />
@@ -46,7 +45,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:menu="@menu/bottom_menu" />
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

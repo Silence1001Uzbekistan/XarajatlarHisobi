@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/fonstatistika" />
+            app:lottie_rawRes="@raw/threeactivtyfon" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

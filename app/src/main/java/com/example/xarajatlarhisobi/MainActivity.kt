@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
             finish()
         }, 3000)
 
-        binding.textM.animation = AnimationUtils.loadAnimation(this,R.anim.anim_one)
+       // binding.textM.animation = AnimationUtils.loadAnimation(this,R.anim.anim_one)
 
     }
 }

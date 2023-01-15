@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="2dp"
     android:background="@drawable/roundedittwo"
     android:orientation="vertical"
     android:padding="8dp">
@@ -81,7 +82,7 @@
             android:id="@+id/editRv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#F9A825"
+            android:background="@drawable/roundbuttoncircle"
             android:fontFamily="@font/redokaneegular"
             android:text="Edit"
             android:textAllCaps="false" />
@@ -91,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:background="#F9A825"
+            android:background="@drawable/roundbuttoncircle"
             android:fontFamily="@font/redokaneegular"
             android:text="Delete"
             android:textAllCaps="false" />

@@ -20,6 +20,7 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import kotlin.system.exitProcess
 
 class HomeActivity : AppCompatActivity() {
 
@@ -187,10 +188,30 @@ class HomeActivity : AppCompatActivity() {
 
             override fun itemClickDelete(report: Report, position: Int) {
 
-                appDatabase.reportDao().deleteReport(report)
-                list.remove(report)
-                reportAdapter.notifyItemRemoved(list.size)
-                reportAdapter.notifyItemRangeRemoved(position, list.size)
+
+                val builder = AlertDialog.Builder(this@HomeActivity)
+
+                builder.setTitle("Ma'lumot o'chiriladi")
+                builder.setMessage("Bu ma'lumotni o'chirib tashlamoqchimisiz ?")
+                builder.setCancelable(false)
+                builder.setPositiveButton("Ha",object : DialogInterface.OnClickListener{
+                    override fun onClick(p0: DialogInterface?, p1: Int) {
+                        appDatabase.reportDao().deleteReport(report)
+                        list.remove(report)
+                        reportAdapter.notifyItemRemoved(list.size)
+                        reportAdapter.notifyItemRangeRemoved(position, list.size)
+                    }
+                })
+                builder.setNegativeButton("Yo'q",object : DialogInterface.OnClickListener{
+                    override fun onClick(p0: DialogInterface?, p1: Int) {
+
+
+                    }
+
+                })
+
+                builder.show()
+
 
             }
 
