@@ -19,11 +19,6 @@ class OneActivity : AppCompatActivity(),View.OnClickListener {
         binding = ActivityOneBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
 
-        supportActionBar!!.hide()
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
 
         binding.bottomNavigationView.selectedItemId = R.id.calculateMenu
 

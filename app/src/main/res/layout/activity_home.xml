@@ -10,6 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/textEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Ma'lumot kiritilmagan"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:textSize="20sp"
+            />
+
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lavOne"
             android:layout_width="match_parent"

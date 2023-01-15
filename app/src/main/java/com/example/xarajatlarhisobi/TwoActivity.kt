@@ -1,6 +1,5 @@
 package com.example.xarajatlarhisobi
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -10,28 +9,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
-import androidx.navigation.fragment.findNavController
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityTwoBinding
 import com.google.android.material.snackbar.Snackbar
-import com.karumi.dexter.BuildConfig
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.jvm.Throws
 
 class TwoActivity : AppCompatActivity() {
@@ -48,11 +37,6 @@ class TwoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        supportActionBar!!.hide()
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
 
         binding.bottomNavigationView.selectedItemId = R.id.plusMenu
 
@@ -156,7 +140,7 @@ class TwoActivity : AppCompatActivity() {
                 report.objectName = binding.objectNameId.text.toString()
                 report.productType = binding.productTypeId.selectedItemPosition
                 report.produvtName = binding.productNameId.text.toString()
-                report.productPrice = binding.productPriceId.text.toString()
+                report.productPrice = binding.productPriceId.text.toString() + " dollar"
                 report.productCommet = binding.productCommentId.text.toString()
 
 

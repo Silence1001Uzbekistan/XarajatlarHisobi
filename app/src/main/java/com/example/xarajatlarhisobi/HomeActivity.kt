@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.navigation.Navigation
@@ -35,6 +36,18 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
 
+        appDatabase = AppDatabase.getInstance(this)
+
+
+        if (appDatabase.reportDao().getAllReport().isEmpty()){
+            binding.textEmpty.visibility = View.VISIBLE
+        }else{
+            binding.textEmpty.visibility = View.INVISIBLE
+        }
+
+
+//        Toast.makeText(this@HomeActivity, "${appDatabase.reportDao().getAllReport().size}", Toast.LENGTH_SHORT).show()
+
         Dexter.withContext(this)
             .withPermissions(
                 Manifest.permission.CAMERA,
@@ -42,11 +55,20 @@ class HomeActivity : AppCompatActivity() {
             ).withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(report: MultiplePermissionsReport) {
 
-                    Toast.makeText(
+/*                    Toast.makeText(
                         this@HomeActivity,
                         "Rasmlarga kirishga ruxsat berildi",
                         Toast.LENGTH_SHORT
-                    ).show()
+                    ).show()*/
+
+
+                    if (appDatabase.reportDao().getAllReport().isEmpty()){
+                        binding.textEmpty.visibility = View.VISIBLE
+                    }else{
+                        binding.textEmpty.visibility = View.INVISIBLE
+                    }
+
+                    Toast.makeText(this@HomeActivity, "${appDatabase.reportDao().getAllReport().size}", Toast.LENGTH_SHORT).show()
 
 
                 }
@@ -67,16 +89,10 @@ class HomeActivity : AppCompatActivity() {
             }).check()
 
 
-        appDatabase = AppDatabase.getInstance(this)
+
 
         list = ArrayList()
 
-
-        supportActionBar!!.hide()
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
 
         binding.bottomNavigationView.selectedItemId = R.id.homeMenu
 
@@ -200,6 +216,14 @@ class HomeActivity : AppCompatActivity() {
                         list.remove(report)
                         reportAdapter.notifyItemRemoved(list.size)
                         reportAdapter.notifyItemRangeRemoved(position, list.size)
+
+
+                        if (appDatabase.reportDao().getAllReport().isEmpty()){
+                            binding.textEmpty.visibility = View.VISIBLE
+                        }else{
+                            binding.textEmpty.visibility = View.INVISIBLE
+                        }
+
                     }
                 })
                 builder.setNegativeButton("Yo'q",object : DialogInterface.OnClickListener{
@@ -221,6 +245,7 @@ class HomeActivity : AppCompatActivity() {
         reportAdapter.notifyItemRemoved(list.size)
 
         binding.rv.adapter = reportAdapter
+
 
     }
 

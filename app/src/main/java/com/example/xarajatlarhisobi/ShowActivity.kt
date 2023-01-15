@@ -31,11 +31,6 @@ class ShowActivity : AppCompatActivity() {
         binding = ActivityShowBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
 
-        supportActionBar!!.hide()
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
 
         appDatabase = AppDatabase.getInstance(this)
 

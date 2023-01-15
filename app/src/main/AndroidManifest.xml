@@ -25,7 +25,9 @@
             android:exported="false" />
         <activity
             android:name=".FourActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            />
         <activity
             android:name=".ThreeActivity"
             android:exported="false" />
@@ -34,6 +36,7 @@
             android:exported="false" />
         <activity
             android:name=".OneActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

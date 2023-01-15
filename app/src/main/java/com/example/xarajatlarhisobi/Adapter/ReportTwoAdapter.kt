@@ -15,7 +15,7 @@ class ReportTwoAdapter(var list: ArrayList<Report>) :
         fun onBind(report: Report, position: Int) {
 
             rvTwoItemBinding.objectNameTwo.text = report.objectName
-            rvTwoItemBinding.productNameTwo.text = report.produvtName
+           // rvTwoItemBinding.productNameTwo.text = report.produvtName
             rvTwoItemBinding.productPriceTwo.text = report.productPrice
 
         }
