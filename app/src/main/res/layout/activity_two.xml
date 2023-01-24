@@ -95,7 +95,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:hint="10/01/1999"
+                        android:hint="-/-/----"
                         android:padding="16dp"
                         android:textColor="#F9A825"
                         android:textSize="17sp"

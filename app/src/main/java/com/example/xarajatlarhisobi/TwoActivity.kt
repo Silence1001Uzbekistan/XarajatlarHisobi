@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -33,6 +34,7 @@ class TwoActivity : AppCompatActivity() {
     lateinit var currentImagePath: String
 
     private var backPressedTime = 0L
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -161,6 +163,7 @@ class TwoActivity : AppCompatActivity() {
 
         val allReport = appDatabase.reportDao().getAllReport()
 
+        var N = false
 
 
 
@@ -177,7 +180,6 @@ class TwoActivity : AppCompatActivity() {
                 report.produvtName = binding.productNameId.text.toString()
                 report.productPrice = binding.productPriceId.text.toString()
 
-                report.productPrice = binding.productPriceId.text.toString() + " dollar"
                 report.productCommet = binding.productCommentId.text.toString()
 
 
@@ -185,8 +187,42 @@ class TwoActivity : AppCompatActivity() {
 
                 report.productDate = binding.studentDateEt.text.toString().trim()
 
+                for (report in allReport) {
 
-                appDatabase.reportDao().addReport(report)
+                    if (report.objectName == binding.objectNameId.text.toString()) {
+
+                        N = true
+
+
+                    }
+
+                }
+
+                if (!N) {
+
+                    appDatabase.reportDao().addReport(report)
+
+                } else {
+
+                    val byId =
+                        appDatabase.reportDao().getCitizenById(binding.objectNameId.text.toString())
+
+                    Log.d("AppDebug", byId.toString())
+                    report.id = byId
+                    report.objectName = binding.objectNameId.text.toString()
+                    report.productType = binding.productTypeId.selectedItemPosition
+                    report.produvtName = binding.productNameId.text.toString()
+                    report.productPrice = (appDatabase.reportDao().getReportById(byId).productPrice!!.toInt() + binding.productPriceId.text.toString().toInt()).toString()
+
+                    report.productCommet = binding.productCommentId.text.toString()
+
+                    Toast.makeText(this, "${appDatabase.reportDao().getReportById(byId).productPrice}", Toast.LENGTH_SHORT).show()
+
+                    appDatabase.reportDao().updateReport(report)
+
+                }
+
+
 
 
                 startActivity(Intent(applicationContext, HomeActivity::class.java))

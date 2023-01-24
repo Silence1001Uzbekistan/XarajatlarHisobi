@@ -105,11 +105,13 @@ class ThreeActivity : AppCompatActivity() {
 
         list = appDatabase.reportDao().getAllReport() as ArrayList<Report>
 
-        list.sortedBy {
-            it.productPrice
+        list.sortByDescending {
+            it.productPrice!!.toInt()
         }
 
         reportTwoAdapter = ReportTwoAdapter(list)
+
+
 
         reportTwoAdapter.notifyDataSetChanged()
 
