@@ -5,13 +5,15 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Report
@@ -21,7 +23,6 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
-import kotlin.jvm.Throws
 
 class TwoActivity : AppCompatActivity() {
 
@@ -31,12 +32,12 @@ class TwoActivity : AppCompatActivity() {
     lateinit var photoURI: Uri
     lateinit var currentImagePath: String
 
+    private var backPressedTime = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTwoBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
-
-
 
         binding.bottomNavigationView.selectedItemId = R.id.plusMenu
 
@@ -53,6 +54,7 @@ class TwoActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
 
                 }
@@ -62,6 +64,7 @@ class TwoActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, OneActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -77,6 +80,7 @@ class TwoActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, ThreeActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -87,6 +91,7 @@ class TwoActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, FourActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -97,9 +102,36 @@ class TwoActivity : AppCompatActivity() {
         }
 
 
+        val arrayAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.viloyat1,
+            R.layout.color_spinner_layout
+        )
 
+        arrayAdapter.setDropDownViewResource(R.layout.spinner_drop_down_layout)
+
+        binding.productTypeId.adapter = arrayAdapter
+
+
+        //spinnerda tanlangani bo'yicha ishlash mumkin
+        binding.productTypeId.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+
+                val selectedItem = p0!!.getItemAtPosition(p2)
+
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+
+            }
+
+        }
 
     }
+
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onResume() {
@@ -127,6 +159,9 @@ class TwoActivity : AppCompatActivity() {
 
         }
 
+        val allReport = appDatabase.reportDao().getAllReport()
+
+
 
 
 
@@ -140,6 +175,8 @@ class TwoActivity : AppCompatActivity() {
                 report.objectName = binding.objectNameId.text.toString()
                 report.productType = binding.productTypeId.selectedItemPosition
                 report.produvtName = binding.productNameId.text.toString()
+                report.productPrice = binding.productPriceId.text.toString()
+
                 report.productPrice = binding.productPriceId.text.toString() + " dollar"
                 report.productCommet = binding.productCommentId.text.toString()
 
@@ -153,6 +190,7 @@ class TwoActivity : AppCompatActivity() {
 
 
                 startActivity(Intent(applicationContext, HomeActivity::class.java))
+                finish()
 
                 Snackbar.make(it, "Ma'lumotlar kiritildi", 1500).show()
 
@@ -192,7 +230,7 @@ class TwoActivity : AppCompatActivity() {
                 fileOutputStream.close()
 
                 val fileAbsolutePath = file.absolutePath
-                Toast.makeText(this, fileAbsolutePath, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, fileAbsolutePath, Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -201,7 +239,8 @@ class TwoActivity : AppCompatActivity() {
     @Throws(IOException::class)
     private fun createImageFile(): File {
 
-        val format = android.icu.text.SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+        val format =
+            android.icu.text.SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
         val externalFilesDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
 
         return File.createTempFile("JPEG_$format", ".jpg", externalFilesDir).apply {
@@ -216,6 +255,20 @@ class TwoActivity : AppCompatActivity() {
         if (::currentImagePath.isInitialized) {
             binding.productImageId.setImageURI(Uri.fromFile(File(currentImagePath)))
         }
+
+    }
+
+    override fun onBackPressed() {
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            finish()
+            super.onBackPressed()
+        } else {
+            Toast.makeText(this, "Dasturdan chiqish uchun ketma ket tez bosing", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        backPressedTime = System.currentTimeMillis()
 
     }
 
