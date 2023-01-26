@@ -43,7 +43,7 @@
             android:fontFamily="@font/redokaneegular"
             android:gravity="left|center"
             android:maxLines="1"
-            android:text=" Dollar"
+            android:text=" So`m"
             android:textSize="15sp" />
 
     </LinearLayout>

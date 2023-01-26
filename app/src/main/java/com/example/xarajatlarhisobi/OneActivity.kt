@@ -1,11 +1,10 @@
 package com.example.xarajatlarhisobi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.xarajatlarhisobi.databinding.ActivityOneBinding
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.math.BigDecimal
@@ -13,6 +12,8 @@ import java.math.BigDecimal
 class OneActivity : AppCompatActivity(),View.OnClickListener {
 
     lateinit var binding: ActivityOneBinding
+
+    private var backPressedTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,7 @@ class OneActivity : AppCompatActivity(),View.OnClickListener {
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
 
                 }
@@ -50,6 +52,7 @@ class OneActivity : AppCompatActivity(),View.OnClickListener {
                     startActivity(Intent(applicationContext, TwoActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -59,6 +62,7 @@ class OneActivity : AppCompatActivity(),View.OnClickListener {
                     startActivity(Intent(applicationContext, ThreeActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -69,6 +73,7 @@ class OneActivity : AppCompatActivity(),View.OnClickListener {
                     startActivity(Intent(applicationContext, FourActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -438,6 +443,20 @@ class OneActivity : AppCompatActivity(),View.OnClickListener {
         if (text == "0") {
             binding.tvAnswer.text = ""
         }
+
+    }
+
+    override fun onBackPressed() {
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            finish()
+            super.onBackPressed()
+        } else {
+            Toast.makeText(this, "Dasturdan chiqish uchun ketma ket tez bosing", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        backPressedTime = System.currentTimeMillis()
 
     }
 

@@ -31,7 +31,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:drawableStart="@drawable/ic_company"
-                    android:hint="Obyekt nomini kiriting"
+                    android:hint="  Obyekt nomini kiriting"
                     android:inputType="text"
                     android:padding="4dp"
                     app:layout_constraintBottom_toTopOf="@id/productTypeId"
@@ -57,7 +57,7 @@
                     android:layout_width="0dp"
                     android:drawableStart="@drawable/ic_productname"
                     android:layout_height="0dp"
-                    android:hint="Mahsulot nomini kiriting"
+                    android:hint="  Mahsulot nomini kiriting"
                     android:inputType="text"
                     app:layout_constraintBottom_toTopOf="@id/llTwo"
                     app:layout_constraintHeight_percent="0.1"
@@ -85,7 +85,7 @@
                         android:drawableLeft="@drawable/ic_money"
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
-                        android:hint="Mahsulot narxi"
+                        android:hint="  Mahsulot narxi(so'm)"
                         android:inputType="number"
                         android:textSize="15sp" />
 
@@ -122,9 +122,10 @@
 
                 <ImageView
                     android:id="@+id/productImageId"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
                     android:src="@drawable/ic_camera"
+                    android:scaleType="fitXY"
                     app:layout_constraintBottom_toTopOf="@id/productSave"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintHorizontal_bias="0.473"
@@ -133,7 +134,7 @@
                     app:layout_constraintTop_toBottomOf="@id/productCommentId"
                     app:layout_constraintVertical_bias="0.6" />
 
-                <com.airbnb.lottie.LottieAnimationView
+                <Button
                     android:id="@+id/productSave"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -144,9 +145,26 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/productImageId"
                     app:layout_constraintVertical_bias="0.7"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/savetwo" />
+                    android:background="#DCBC3D"
+                    android:text="Ma'lumotni saqlash"
+                    android:textColor="@color/white"
+                     />
+
+                <TextView
+                    android:id="@+id/textSave"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="top|center"
+                    android:text="Mahsulotni rasmga oling"
+                    android:textColor="#DCBC3D"
+                    android:textSize="20sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productImageId"
+                    app:layout_constraintVertical_bias="0.7" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

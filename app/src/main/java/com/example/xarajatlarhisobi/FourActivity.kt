@@ -1,15 +1,16 @@
 package com.example.xarajatlarhisobi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.xarajatlarhisobi.databinding.ActivityFourBinding
-import com.example.xarajatlarhisobi.databinding.ActivityThreeBinding
 
 class FourActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityFourBinding
+
+    private var backPressedTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,7 @@ class FourActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
 
                 }
@@ -40,6 +42,7 @@ class FourActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, OneActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -48,6 +51,7 @@ class FourActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, TwoActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -57,6 +61,7 @@ class FourActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, ThreeActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -75,7 +80,19 @@ class FourActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
 
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            finish()
+            super.onBackPressed()
+        } else {
+            Toast.makeText(this, "Dasturdan chiqish uchun ketma ket tez bosing", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        backPressedTime = System.currentTimeMillis()
+
+    }
 
 
 }

@@ -158,6 +158,7 @@ class TwoActivity : AppCompatActivity() {
             getTakeImageContent.launch(photoURI)
 
             binding.productSave.visibility = View.VISIBLE
+            binding.textSave.visibility = View.GONE
 
         }
 

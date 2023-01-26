@@ -1,22 +1,15 @@
 package com.example.xarajatlarhisobi
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
+import android.view.View
 import android.widget.Toast
-import com.example.movieapproomsql.Adapter.ReportAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.example.movieapproomsql.Adapter.ReportTwoAdapter
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Report
-import com.example.xarajatlarhisobi.databinding.ActivityHomeBinding
 import com.example.xarajatlarhisobi.databinding.ActivityThreeBinding
-import com.example.xarajatlarhisobi.databinding.MyDialogBinding
-import com.google.android.material.snackbar.Snackbar
-import kotlin.math.max
 
 class ThreeActivity : AppCompatActivity() {
 
@@ -27,6 +20,8 @@ class ThreeActivity : AppCompatActivity() {
     lateinit var listTwo: ArrayList<Report>
 
     lateinit var reportTwoAdapter: ReportTwoAdapter
+
+    private var backPressedTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +45,7 @@ class ThreeActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
 
                 }
@@ -59,6 +55,7 @@ class ThreeActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, OneActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -67,6 +64,7 @@ class ThreeActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, TwoActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -84,6 +82,7 @@ class ThreeActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, FourActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -112,6 +111,11 @@ class ThreeActivity : AppCompatActivity() {
         reportTwoAdapter = ReportTwoAdapter(list)
 
 
+        if (list.size > 3) {
+
+            binding.lavOne.visibility = View.INVISIBLE
+
+        }
 
         reportTwoAdapter.notifyDataSetChanged()
 
@@ -119,7 +123,19 @@ class ThreeActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
 
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            finish()
+            super.onBackPressed()
+        } else {
+            Toast.makeText(this, "Dasturdan chiqish uchun ketma ket tez bosing", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        backPressedTime = System.currentTimeMillis()
+
+    }
 
 
 }

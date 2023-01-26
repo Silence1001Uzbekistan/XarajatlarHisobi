@@ -31,6 +31,8 @@ class HomeActivity : AppCompatActivity() {
 
     lateinit var reportAdapter: ReportAdapter
 
+    private var backPressedTime = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater, null, false)
@@ -68,7 +70,7 @@ class HomeActivity : AppCompatActivity() {
                         binding.textEmpty.visibility = View.INVISIBLE
                     }
 
-                    Toast.makeText(this@HomeActivity, "${appDatabase.reportDao().getAllReport().size}", Toast.LENGTH_SHORT).show()
+/*                    Toast.makeText(this@HomeActivity, "${appDatabase.reportDao().getAllReport().size}", Toast.LENGTH_SHORT).show()*/
 
 
                 }
@@ -80,7 +82,7 @@ class HomeActivity : AppCompatActivity() {
 
                     Toast.makeText(
                         this@HomeActivity,
-                        "Rasmlarga kirishga ruxsat bermadinggiz ",
+                        "Rasmlarga kirishga ruxsat bermadinggiz,dasturni o'chirib qayta ruxsat berishni tavsiya qilamiz ",
                         Toast.LENGTH_SHORT
                     ).show()
                     finish()
@@ -115,6 +117,7 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, OneActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -123,6 +126,7 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, TwoActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -132,6 +136,7 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, ThreeActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -142,6 +147,7 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(Intent(applicationContext, FourActivity::class.java))
                     overridePendingTransition(0, 0)
                     true
+                    finish()
 
                 }
 
@@ -249,5 +255,18 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            finish()
+            super.onBackPressed()
+        } else {
+            Toast.makeText(this, "Dasturdan chiqish uchun ketma ket tez bosing", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        backPressedTime = System.currentTimeMillis()
+
+    }
 
 }
