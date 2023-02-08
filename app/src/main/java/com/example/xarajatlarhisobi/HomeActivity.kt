@@ -5,11 +5,12 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieapproomsql.Adapter.ReportAdapter
-import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityHomeBinding
@@ -19,6 +20,7 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import kotlin.system.exitProcess
 
 class HomeActivity : AppCompatActivity() {
 
@@ -247,10 +249,57 @@ class HomeActivity : AppCompatActivity() {
         reportAdapter.notifyItemInserted(list.size)
         reportAdapter.notifyItemRemoved(list.size)
 
-        if (list[0].username!!.isNotEmpty()) {
             binding.rv.adapter = reportAdapter
+
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+
+        menuInflater.inflate(R.menu.top_menu, menu)
+
+
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val id = item.itemId
+
+        when (id) {
+
+            R.id.usedLiteratureMenu -> {
+
+
+                val builder = AlertDialog.Builder(this)
+
+                builder.setTitle("Accountni yopish")
+                builder.setMessage("Accountinggizdan chiqib ketmoqchimisiz ?")
+                builder.setCancelable(false)
+                builder.setPositiveButton("Ha",object : DialogInterface.OnClickListener{
+                    override fun onClick(p0: DialogInterface?, p1: Int) {
+                        startActivity(Intent(this@HomeActivity,RegistrationActivity::class.java))
+                        finish()
+                    }
+                })
+                builder.setNegativeButton("Yo'q",object : DialogInterface.OnClickListener{
+                    override fun onClick(p0: DialogInterface?, p1: Int) {
+
+
+                    }
+
+                })
+
+                builder.show()
+
+
+            }
+
         }
 
+        return super.onOptionsItemSelected(item)
 
     }
 

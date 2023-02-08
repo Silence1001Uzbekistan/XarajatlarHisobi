@@ -44,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
                 if (report.username == binding.etUsername.text.toString() && report.password == binding.etPassword.text.toString()) {
 
                     startActivity(Intent(this, HomeActivity::class.java))
+                    finish()
 
                 } else {
                     Toast.makeText(this, "Ma'lumotlarni to'g'ri kiriting", Toast.LENGTH_SHORT)

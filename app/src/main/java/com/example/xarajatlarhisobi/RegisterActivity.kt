@@ -32,11 +32,13 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener {
 
+
             MySharedPreferenceMovie.user = binding.etUsername.text.toString()
             MySharedPreferenceMovie.pass = binding.etPassword.text.toString()
 
 
             startActivity(Intent(this,HomeActivity::class.java))
+            finish()
 
         }
 
