@@ -4,13 +4,10 @@ import android.Manifest
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.Toast
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
+import androidx.appcompat.app.AppCompatActivity
 import com.example.movieapproomsql.Adapter.ReportAdapter
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Report
@@ -21,7 +18,6 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import kotlin.system.exitProcess
 
 class HomeActivity : AppCompatActivity() {
 
@@ -250,7 +246,9 @@ class HomeActivity : AppCompatActivity() {
         reportAdapter.notifyItemInserted(list.size)
         reportAdapter.notifyItemRemoved(list.size)
 
-        binding.rv.adapter = reportAdapter
+        if (list[0].username!!.isNotEmpty()) {
+            binding.rv.adapter = reportAdapter
+        }
 
 
     }

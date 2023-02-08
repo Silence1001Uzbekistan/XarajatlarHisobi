@@ -21,7 +21,10 @@ interface ReportDao {
     @Query("select * from report where id=:id")
     fun getReportById(id: Int): Report
 
+    @Query("select * from report where username=:username")
+    fun getReportByList(username: String): List<Report>
+
     @Query("select id from report where objectName=:productNameN")
-    fun getCitizenById(productNameN:String):Int
+    fun getCitizenById(productNameN: String): Int
 
 }
