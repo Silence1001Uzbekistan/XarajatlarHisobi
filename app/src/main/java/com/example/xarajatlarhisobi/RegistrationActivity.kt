@@ -24,7 +24,7 @@ class RegistrationActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
 
             startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+
 
 
 
@@ -34,7 +34,7 @@ class RegistrationActivity : AppCompatActivity() {
 
 
             startActivity(Intent(this, RegisterActivity::class.java))
-            finish()
+
 
 
         }

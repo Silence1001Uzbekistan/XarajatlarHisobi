@@ -37,7 +37,6 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
 
-
             for (report in FullList) {
 
 
