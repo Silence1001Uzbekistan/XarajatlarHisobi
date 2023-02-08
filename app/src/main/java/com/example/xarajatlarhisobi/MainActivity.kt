@@ -1,11 +1,10 @@
 package com.example.xarajatlarhisobi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import com.example.xarajatlarhisobi.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -25,9 +24,9 @@ class MainActivity : AppCompatActivity() {
 
 
         Handler().postDelayed({
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, RegistrationActivity::class.java))
             finish()
-        }, 3000)
+        }, 2500)
 
        // binding.textM.animation = AnimationUtils.loadAnimation(this,R.anim.anim_one)
 
