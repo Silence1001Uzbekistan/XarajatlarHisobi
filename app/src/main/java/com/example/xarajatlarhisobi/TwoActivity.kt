@@ -16,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityTwoBinding
@@ -40,6 +41,8 @@ class TwoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTwoBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
+
+
 
         binding.bottomNavigationView.selectedItemId = R.id.plusMenu
 
@@ -175,6 +178,9 @@ class TwoActivity : AppCompatActivity() {
                     .isNotEmpty() && binding.productPriceId.text.trim()
                     .isNotEmpty() && binding.studentDateEt.text.trim().isNotEmpty()
             ) {
+
+                report.username = MySharedPreferenceMovie.user
+                report.password = MySharedPreferenceMovie.pass
 
                 report.objectName = binding.objectNameId.text.toString()
                 report.productType = binding.productTypeId.selectedItemPosition

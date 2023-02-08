@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieapproomsql.Adapter.ReportAdapter
+import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityHomeBinding
