@@ -4,13 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.xarajatlarhisobi.Dao.RegistrDao
 import com.example.xarajatlarhisobi.Dao.ReportDao
+import com.example.xarajatlarhisobi.Models.Registr
 import com.example.xarajatlarhisobi.Models.Report
 
-@Database(entities = [Report::class], version = 1)
+@Database(entities = [Report::class,Registr::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun reportDao(): ReportDao
+    abstract fun registrDao(): RegistrDao
 
 
     companion object {

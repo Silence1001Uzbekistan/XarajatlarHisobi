@@ -6,7 +6,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
-import com.example.xarajatlarhisobi.Database.AppDatabaseR
+import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Registr
 import com.example.xarajatlarhisobi.databinding.ActivityRegisterBinding
 
@@ -15,11 +15,14 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegisterBinding
     lateinit var registr: Registr
 
-    lateinit var appDatabaseR: AppDatabaseR
+    //lateinit var appDatabaseR: AppDatabaseR
+    lateinit var appDatabase: AppDatabase
 
     lateinit var FullListR: ArrayList<Registr>
 
     var N = true
+
+    private var backPressedTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +40,11 @@ class RegisterActivity : AppCompatActivity() {
         registr = Registr()
         FullListR = ArrayList()
 
-        appDatabaseR = AppDatabaseR.getInstance(this)
+        //appDatabaseR = AppDatabaseR.getInstance(this)
+        appDatabase = AppDatabase.getInstance(this)
 
-        FullListR = appDatabaseR.registrDao().getAllRegistr() as ArrayList<Registr>
+        //FullListR = appDatabaseR.registrDao().getAllRegistr() as ArrayList<Registr>
+        FullListR = appDatabase.registrDao().getAllRegistr() as ArrayList<Registr>
 
         binding.btnRegister.setOnClickListener {
 
@@ -63,23 +68,34 @@ class RegisterActivity : AppCompatActivity() {
 
                 registr.username = binding.etUsername.text.toString()
 
-                if (binding.etPassword.text == binding.etConfirgPassword){
+                if (binding.etPassword.text.toString() == binding.etConfirgPassword.text.toString()) {
 
-                    registr.password = binding.etPassword.text.toString()
+                    if (binding.etUsername.text.toString().isNotEmpty() && binding.etPassword.text!!.isNotEmpty() && binding.etConfirgPassword.text!!.isNotEmpty()){
+                        registr.password = binding.etPassword.text.toString()
 
-                    appDatabaseR.registrDao().addRegistr(registr)
-                    startActivity(Intent(this, HomeActivity::class.java))
-                    finish()
-                    Toast.makeText(this, "Ro'yxatdan o'tdinggiz", Toast.LENGTH_SHORT).show()
-                    MySharedPreferenceMovie.user = binding.etUsername.text.toString()
-                    MySharedPreferenceMovie.pass = binding.etPassword.text.toString()
+                        appDatabase.registrDao().addRegistr(registr)
 
-                }else{
+                        startActivity(Intent(this, HomeActivity::class.java))
+                        finish()
+                        Toast.makeText(this, "Ro'yxatdan o'tdinggiz", Toast.LENGTH_SHORT).show()
+                        MySharedPreferenceMovie.user = binding.etUsername.text.toString()
+                        MySharedPreferenceMovie.pass = binding.etPassword.text.toString()
+                    }else{
+                        Toast.makeText(this, "Ma'lumotlarni to'ldiiring", Toast.LENGTH_SHORT).show()
+                    }
 
-                    Toast.makeText(this, "Qayta parolni tekishiring", Toast.LENGTH_SHORT).show()
 
-                    binding.etPassword.text!!.clear()
-                    binding.etConfirgPassword.text!!.clear()
+                }else {
+
+                    if (binding.etPassword.text.toString() != binding.etConfirgPassword.text.toString()) {
+
+                        Toast.makeText(this, "Qayta parolni tekishiring", Toast.LENGTH_SHORT).show()
+
+                        binding.etPassword.text!!.clear()
+                        binding.etConfirgPassword.text!!.clear()
+
+                    }
+
 
                 }
 
@@ -93,4 +109,20 @@ class RegisterActivity : AppCompatActivity() {
 
 
     }
+
+    override fun onBackPressed() {
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            startActivity(Intent(this, RegistrationActivity::class.java))
+            finish()
+            super.onBackPressed()
+        } else {
+            Toast.makeText(this, "Asosiy oynaga qaytish uchun ketma ket tez bosing", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        backPressedTime = System.currentTimeMillis()
+
+    }
+
 }

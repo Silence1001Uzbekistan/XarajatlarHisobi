@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
 import com.example.xarajatlarhisobi.Database.AppDatabase
-import com.example.xarajatlarhisobi.Database.AppDatabaseR
 import com.example.xarajatlarhisobi.Models.Registr
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityLoginBinding
@@ -17,11 +16,13 @@ class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
 
     lateinit var appDatabase: AppDatabase
-    lateinit var appDatabaseR: AppDatabaseR
+//    lateinit var appDatabaseR: AppDatabaseR
 
 
     lateinit var FullList: ArrayList<Report>
     lateinit var FullListR: ArrayList<Registr>
+
+    private var backPressedTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,14 +38,14 @@ class LoginActivity : AppCompatActivity() {
         MySharedPreferenceMovie.init(this)
 
         appDatabase = AppDatabase.getInstance(this)
-        appDatabaseR = AppDatabaseR.getInstance(this)
+        //appDatabaseR = AppDatabaseR.getInstance(this)
 
         FullList = ArrayList()
         FullListR = ArrayList()
 
         FullList = appDatabase.reportDao().getAllReport() as ArrayList<Report>
 
-        FullListR = appDatabaseR.registrDao().getAllRegistr() as ArrayList<Registr>
+        FullListR = appDatabase.registrDao().getAllRegistr() as ArrayList<Registr>
 
 
         binding.btnLogin.setOnClickListener {
@@ -71,4 +72,21 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
+
+
+    override fun onBackPressed() {
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            startActivity(Intent(this, RegistrationActivity::class.java))
+            finish()
+            super.onBackPressed()
+        } else {
+            Toast.makeText(this, "Asosiy oynaga qaytish uchun ketma ket tez bosing", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        backPressedTime = System.currentTimeMillis()
+
+    }
+
 }
