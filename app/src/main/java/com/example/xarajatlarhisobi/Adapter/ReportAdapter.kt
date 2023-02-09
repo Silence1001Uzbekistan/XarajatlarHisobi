@@ -14,7 +14,8 @@ class ReportAdapter(var list: ArrayList<Report>, var onMyItemClickListener: OnMy
         fun onBind(report: Report, position: Int) {
 
             rvItemBinding.nameRv.text = report.objectName
-            rvItemBinding.authorsRv.text = report.produvtName
+            rvItemBinding.productNameRv.text = report.produvtName
+            rvItemBinding.productTypeRv.text = report.productType
             rvItemBinding.dateRv.text = report.productPrice
 
             rvItemBinding.dateHome.text = report.productDate

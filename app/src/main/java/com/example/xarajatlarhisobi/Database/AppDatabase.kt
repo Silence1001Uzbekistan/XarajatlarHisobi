@@ -25,7 +25,7 @@ abstract class AppDatabase : RoomDatabase() {
 
             if (instance == null) {
 
-                instance = Room.databaseBuilder(context, AppDatabase::class.java, "citizens_db")
+                instance = Room.databaseBuilder(context, AppDatabase::class.java, "doniyor_db")
                     .fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
             }

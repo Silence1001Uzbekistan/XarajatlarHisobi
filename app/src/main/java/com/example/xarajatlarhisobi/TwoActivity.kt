@@ -36,11 +36,16 @@ class TwoActivity : AppCompatActivity() {
 
     private var backPressedTime = 0L
 
+    lateinit var report: Report
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTwoBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
+
+
+        appDatabase = AppDatabase.getInstance(this)
 
 
 
@@ -106,6 +111,7 @@ class TwoActivity : AppCompatActivity() {
             false
         }
 
+        report = Report()
 
         val arrayAdapter = ArrayAdapter.createFromResource(
             this,
@@ -123,8 +129,9 @@ class TwoActivity : AppCompatActivity() {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
 
 
-                val selectedItem = p0!!.getItemAtPosition(p2)
-
+                report.productType = p0!!.getItemAtPosition(p2).toString()
+/*                Log.d("don", "onItemSelected: $p0")
+                Toast.makeText(this@TwoActivity, "${p0!!.getItemAtPosition(p2).toString()}", Toast.LENGTH_SHORT).show()*/
 
             }
 
@@ -135,37 +142,8 @@ class TwoActivity : AppCompatActivity() {
 
         }
 
-    }
-
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    override fun onResume() {
-        super.onResume()
-
-        var report = Report()
-
-
-
-        appDatabase = AppDatabase.getInstance(this)
-
-        binding.productImageId.setOnClickListener {
-
-
-            val imageFile = createImageFile()
-            photoURI = FileProvider.getUriForFile(
-                this,
-                com.example.xarajatlarhisobi.BuildConfig.APPLICATION_ID,
-                imageFile
-            )
-
-            getTakeImageContent.launch(photoURI)
-
-            binding.productSave.visibility = View.VISIBLE
-            binding.textSave.visibility = View.GONE
-
-        }
-
         val allReport = appDatabase.reportDao().getAllReport()
+
 
         var N = false
 
@@ -183,7 +161,7 @@ class TwoActivity : AppCompatActivity() {
                 report.password = MySharedPreferenceMovie.pass
 
                 report.objectName = binding.objectNameId.text.toString()
-                report.productType = binding.productTypeId.selectedItemPosition
+                //report.productType = binding.productTypeId.selectedItemPosition
                 report.produvtName = binding.productNameId.text.toString()
                 report.productPrice = binding.productPriceId.text.toString()
 
@@ -217,7 +195,7 @@ class TwoActivity : AppCompatActivity() {
                     Log.d("AppDebug", byId.toString())
                     report.id = byId
                     report.objectName = binding.objectNameId.text.toString()
-                    report.productType = binding.productTypeId.selectedItemPosition
+                    //report.productType = binding.productTypeId.selectedItemPosition
                     report.produvtName = binding.productNameId.text.toString()
                     report.productPrice = (appDatabase.reportDao().getReportById(byId).productPrice!!.toInt() + binding.productPriceId.text.toString().toInt()).toString()
 
@@ -256,6 +234,35 @@ class TwoActivity : AppCompatActivity() {
             dataPickerDialog.show()
 
         }
+
+
+
+
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    override fun onResume() {
+        super.onResume()
+
+        binding.productImageId.setOnClickListener {
+
+
+            val imageFile = createImageFile()
+            photoURI = FileProvider.getUriForFile(
+                this,
+                com.example.xarajatlarhisobi.BuildConfig.APPLICATION_ID,
+                imageFile
+            )
+
+            getTakeImageContent.launch(photoURI)
+
+            binding.productSave.visibility = View.VISIBLE
+            binding.textSave.visibility = View.GONE
+
+        }
+
+
 
 
     }
