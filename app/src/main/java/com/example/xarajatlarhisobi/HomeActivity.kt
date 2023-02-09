@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieapproomsql.Adapter.ReportAdapter
+import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityHomeBinding
@@ -161,7 +162,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        list = appDatabase.reportDao().getAllReport() as ArrayList<Report>
+        MySharedPreferenceMovie.init(this)
+
+        list = appDatabase.reportDao().getReportByList(MySharedPreferenceMovie.user.toString()) as ArrayList<Report>
 
         reportAdapter = ReportAdapter(list, object : ReportAdapter.OnMyItemClickListener {
             override fun itemClick(report: Report) {
