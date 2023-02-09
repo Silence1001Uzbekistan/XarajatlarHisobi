@@ -84,9 +84,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:drawableLeft="@drawable/ic_money"
-                        android:layout_weight="1"
+                        android:layout_weight="1.5"
                         android:gravity="left|center_vertical"
-                        android:hint="  Mahsulot narxi(so'm)"
+                        android:hint="  Narxi(so'm)"
                         android:inputType="number"
                         android:textSize="15sp" />
 

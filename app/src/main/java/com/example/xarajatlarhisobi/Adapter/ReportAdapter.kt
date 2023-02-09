@@ -1,6 +1,7 @@
 
 package com.example.movieapproomsql.Adapter
 
+import android.annotation.SuppressLint
 import com.example.xarajatlarhisobi.Dao.ReportDao
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
 
     inner class Vh(var rvItemBinding: RvItemBinding) : RecyclerView.ViewHolder(rvItemBinding.root) {
 
+        @SuppressLint("SetTextI18n")
         fun onBind(report: Report, position: Int) {
 
             rvItemBinding.nameRv.text = report.objectName
@@ -41,7 +43,9 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
 
             rvItemBinding.plusRv.setOnClickListener {
 
-                onMyItemClickListener.itemCLickChangePlus(report, position)
+                rvItemBinding.showRv.text = (report.productNumber!!.toInt() + 1).toString()
+                report.productNumber = (report.productNumber!!.toInt() + 1).toString()
+                reportDao.updateReport(report)
 
             }
 

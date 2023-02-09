@@ -258,6 +258,7 @@ class HomeActivity : AppCompatActivity() {
 
             override fun itemCLickChangePlus(report: Report, position: Int) {
 
+                reportAdapter.notifyItemChanged(position)
 
             }
 

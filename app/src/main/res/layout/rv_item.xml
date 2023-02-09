@@ -110,6 +110,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_margin="5dp"
             android:orientation="horizontal">
 
 
@@ -118,11 +119,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/redokaneegular"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="-"
                 android:textAllCaps="false"
                 android:textColor="#E53935"
-                android:textSize="35sp" />
+                android:textSize="40sp" />
 
             <TextView
                 android:id="@+id/showRv"
@@ -160,7 +161,7 @@
                 android:text="+"
                 android:textAllCaps="false"
                 android:textColor="#FDD835"
-                android:textSize="35sp" />
+                android:textSize="40sp" />
 
         </LinearLayout>
 
@@ -171,6 +172,7 @@
             android:background="@drawable/roundbuttoncircle"
             android:fontFamily="@font/redokaneegular"
             android:text="Edit"
+            android:textColor="@color/white"
             android:textAllCaps="false" />
 
         <Button
@@ -178,6 +180,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
             android:background="@drawable/roundbuttoncircle"
             android:fontFamily="@font/redokaneegular"
             android:text="Delete"
