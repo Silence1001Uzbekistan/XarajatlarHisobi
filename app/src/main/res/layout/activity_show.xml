@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#6D058676"
+    android:background="@drawable/leafshowsh"
     tools:context=".ShowActivity">
 
     <RelativeLayout
@@ -35,19 +35,23 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Umimiy ma'lumotlar"
-                        android:textColor="#C62828"
+                        android:text="Obyekt ma'lumotlar"
+                        android:textColor="@color/primary_color"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
+                    <ImageView
+                        android:id="@+id/productImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+
                     <TextView
-                        android:id="@+id/objectDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:padding="5dp"
-                        android:text="@string/app_name"
-                        android:textColor="@color/black"
+                        android:text="Obyekt nomi"
+                        android:textColor="@color/primary_color"
                         android:textSize="30sp" />
 
                     <TextView
@@ -56,8 +60,19 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="@string/app_name"
-                        android:textColor="@color/black"
+                        android:fontFamily="@font/berkshireswashregular"
+                        android:text="-----------------"
+                        android:textColor="@color/primary_color"
+                        android:textSize="25sp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:padding="5dp"
+                        android:text="Mahsulot nomi"
+                        android:textColor="@color/primary_color"
                         android:textSize="30sp" />
 
                     <TextView
@@ -65,10 +80,41 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:fontFamily="@font/berkshireswashregular"
                         android:padding="10dp"
-                        android:text="@string/app_name"
-                        android:textColor="@color/black"
+                        android:text="-----------------"
+                        android:textColor="@color/primary_color"
                         android:textSize="20sp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:padding="5dp"
+                        android:text="Mahsulot turi"
+                        android:textColor="@color/primary_color"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/productType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:fontFamily="@font/berkshireswashregular"
+                        android:text="-----------------"
+                        android:textColor="@color/primary_color"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:padding="5dp"
+                        android:text="Mahsulot narxi"
+                        android:textColor="@color/primary_color"
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/productPrice"
@@ -76,9 +122,41 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="@string/app_name"
-                        android:textColor="@color/black"
+                        android:fontFamily="@font/berkshireswashregular"
+                        android:text="-----------------"
+                        android:textColor="@color/primary_color"
                         android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:padding="5dp"
+                        android:text="Mahsulot saqlangan sanasi"
+                        android:textColor="@color/primary_color"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/objectDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/berkshireswashregular"
+                        android:padding="5dp"
+                        android:text="-----------------"
+                        android:textColor="@color/primary_color"
+                        android:textSize="30sp" />
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:padding="5dp"
+                        android:text="Komentariya"
+                        android:textColor="@color/primary_color"
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/productComment"
@@ -86,14 +164,11 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="@string/app_name"
-                        android:textColor="@color/black"
+                        android:fontFamily="@font/berkshireswashregular"
+                        android:text="-----------------"
+                        android:textColor="@color/primary_color"
                         android:textSize="20sp" />
 
-                    <ImageView
-                        android:id="@+id/productImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp" />
 
                 </LinearLayout>
 

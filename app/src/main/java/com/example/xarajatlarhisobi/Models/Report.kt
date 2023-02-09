@@ -14,6 +14,8 @@ class Report:Serializable {
     var objectName: String? = null
     var productType: String? = null
     var produvtName: String? = null
+    var productNumber: String? = null
+    var productLength: String? = null
     var productPrice: String? = null
     var productCommet: String? = null
     var productImage: String? = null

@@ -21,7 +21,6 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import kotlin.system.exitProcess
 
 class HomeActivity : AppCompatActivity() {
 
@@ -164,15 +163,18 @@ class HomeActivity : AppCompatActivity() {
 
         MySharedPreferenceMovie.init(this)
 
-        list = appDatabase.reportDao().getReportByList(MySharedPreferenceMovie.user.toString()) as ArrayList<Report>
+        list = appDatabase.reportDao().getReportByList(
+            MySharedPreferenceMovie.user.toString(),
+            MySharedPreferenceMovie.pass.toString()
+        ) as ArrayList<Report>
 
-        reportAdapter = ReportAdapter(list, object : ReportAdapter.OnMyItemClickListener {
+        reportAdapter = ReportAdapter(appDatabase.reportDao(),list, object : ReportAdapter.OnMyItemClickListener {
             override fun itemClick(report: Report) {
 
                 val intent = Intent(this@HomeActivity, ShowActivity::class.java)
                 intent.putExtra("id", report.id)
-                intent.putExtra("full",report.productImage)
-                intent.putExtra("date",report.productDate)
+                intent.putExtra("full", report.productImage)
+                intent.putExtra("date", report.productDate)
                 startActivity(intent)
 
 
@@ -243,6 +245,18 @@ class HomeActivity : AppCompatActivity() {
                 })
 
                 builder.show()
+
+
+            }
+
+            override fun itemCLickChangeMinus(report: Report, position: Int) {
+
+                reportAdapter.notifyItemChanged(position)
+
+            }
+
+
+            override fun itemCLickChangePlus(report: Report, position: Int) {
 
 
             }

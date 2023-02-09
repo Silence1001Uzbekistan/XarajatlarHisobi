@@ -49,10 +49,11 @@ class ShowActivity : AppCompatActivity() {
         binding.productName.text = reportById.produvtName
         binding.productPrice.text = reportById.productPrice
         binding.productComment.text = reportById.productCommet
+        binding.productType.text = reportById.productType
 
         binding.objectDate.text = date
 
-        Toast.makeText(this, "$date", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "$date", Toast.LENGTH_SHORT).show()
 
         binding.productImage.setImageURI(Uri.parse(serializable))
 

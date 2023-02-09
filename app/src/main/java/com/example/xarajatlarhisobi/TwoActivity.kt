@@ -39,6 +39,7 @@ class TwoActivity : AppCompatActivity() {
     lateinit var report: Report
 
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTwoBinding.inflate(layoutInflater, null, false)
@@ -119,10 +120,17 @@ class TwoActivity : AppCompatActivity() {
             R.layout.color_spinner_layout
         )
 
+        val arrayAdapterTwo = ArrayAdapter.createFromResource(
+            this,
+            R.array.uzunlik,
+            R.layout.color_spinner_layout
+        )
+
         arrayAdapter.setDropDownViewResource(R.layout.spinner_drop_down_layout)
+        arrayAdapterTwo.setDropDownViewResource(R.layout.spinner_drop_down_layout)
 
         binding.productTypeId.adapter = arrayAdapter
-
+        binding.productLengthSpinner.adapter = arrayAdapterTwo
 
         //spinnerda tanlangani bo'yicha ishlash mumkin
         binding.productTypeId.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -130,6 +138,24 @@ class TwoActivity : AppCompatActivity() {
 
 
                 report.productType = p0!!.getItemAtPosition(p2).toString()
+/*                Log.d("don", "onItemSelected: $p0")
+                Toast.makeText(this@TwoActivity, "${p0!!.getItemAtPosition(p2).toString()}", Toast.LENGTH_SHORT).show()*/
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+
+            }
+
+        }
+
+        //spinnerda tanlangani bo'yicha ishlash mumkin
+        binding.productLengthSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+
+                report.productLength = p0!!.getItemAtPosition(p2).toString()
 /*                Log.d("don", "onItemSelected: $p0")
                 Toast.makeText(this@TwoActivity, "${p0!!.getItemAtPosition(p2).toString()}", Toast.LENGTH_SHORT).show()*/
 
@@ -164,6 +190,8 @@ class TwoActivity : AppCompatActivity() {
                 //report.productType = binding.productTypeId.selectedItemPosition
                 report.produvtName = binding.productNameId.text.toString()
                 report.productPrice = binding.productPriceId.text.toString()
+
+                report.productNumber = binding.productNumberId.text.toString()
 
                 report.productCommet = binding.productCommentId.text.toString()
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/addleaf"
     tools:context=".TwoActivity">
 
     <RelativeLayout
@@ -71,7 +72,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toTopOf="@id/productCommentId"
+                    app:layout_constraintBottom_toTopOf="@id/llpn"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -93,13 +94,46 @@
                         android:id="@+id/student_date_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:gravity="center"
                         android:hint="-/-/----"
                         android:padding="16dp"
                         android:textColor="@color/black"
                         android:textSize="17sp"
                         app:drawableEndCompat="@drawable/ic_vectorkalendar" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llpn"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/productCommentId"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productNameId"
+                    app:layout_constraintVertical_bias="0.4">
+
+                    <EditText
+                        android:id="@+id/productNumberId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:hint="Mahsulot sonini kiriting"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        app:layout_constraintHeight_percent="0.1"
+                        app:layout_constraintVertical_bias="0.5" />
+
+                    <Spinner
+                        android:id="@+id/productLengthSpinner"
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
 
 
                 </LinearLayout>
@@ -113,11 +147,11 @@
                     android:hint="Commentariya kiritishinggiz mumkin"
                     android:inputType="text"
                     android:textColor="@color/black"
-                    app:layout_constraintBottom_toTopOf="@id/llTwo"
+                    app:layout_constraintBottom_toTopOf="@id/productImageId"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/llTwo"
+                    app:layout_constraintTop_toBottomOf="@id/llpn"
                     app:layout_constraintVertical_bias="0.5" />
 
                 <ImageView

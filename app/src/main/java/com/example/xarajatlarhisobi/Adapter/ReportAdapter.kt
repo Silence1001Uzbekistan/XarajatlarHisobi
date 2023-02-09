@@ -1,12 +1,14 @@
+
 package com.example.movieapproomsql.Adapter
 
+import com.example.xarajatlarhisobi.Dao.ReportDao
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.RvItemBinding
 
-class ReportAdapter(var list: ArrayList<Report>, var onMyItemClickListener: OnMyItemClickListener) :
+class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var onMyItemClickListener: OnMyItemClickListener) :
     RecyclerView.Adapter<ReportAdapter.Vh>() {
 
     inner class Vh(var rvItemBinding: RvItemBinding) : RecyclerView.ViewHolder(rvItemBinding.root) {
@@ -18,7 +20,31 @@ class ReportAdapter(var list: ArrayList<Report>, var onMyItemClickListener: OnMy
             rvItemBinding.productTypeRv.text = report.productType
             rvItemBinding.dateRv.text = report.productPrice
 
+            rvItemBinding.showRv.text = report.productNumber
+            rvItemBinding.lengthRv.text = report.productLength
+
             rvItemBinding.dateHome.text = report.productDate
+
+
+            rvItemBinding.minusRv.setOnClickListener {
+
+                if (report.productNumber!!.toInt() > 0) {
+
+                    rvItemBinding.showRv.text = (report.productNumber!!.toInt() - 1).toString()
+                    report.productNumber = (report.productNumber!!.toInt() - 1).toString()
+                    reportDao.updateReport(report)
+
+                }
+
+
+            }
+
+            rvItemBinding.plusRv.setOnClickListener {
+
+                onMyItemClickListener.itemCLickChangePlus(report, position)
+
+            }
+
 
             rvItemBinding.editRv.setOnClickListener {
 
@@ -66,6 +92,8 @@ class ReportAdapter(var list: ArrayList<Report>, var onMyItemClickListener: OnMy
         fun itemClick(report: Report)
         fun itemCLickChange(report: Report, position: Int)
         fun itemClickDelete(report: Report, position: Int)
+        fun itemCLickChangeMinus(report: Report, position: Int)
+        fun itemCLickChangePlus(report: Report, position: Int)
 
     }
 

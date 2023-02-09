@@ -28,5 +28,10 @@
         <item>Polyureya</item>
     </string-array>
 
+    <string-array name="uzunlik">
+        <item>m</item>
+        <item>m²</item>
+        <item>dona</item>
+    </string-array>
 
 </resources>
