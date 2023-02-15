@@ -3,23 +3,21 @@ package com.example.xarajatlarhisobi
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieapproomsql.Adapter.ReportThreeAdapter
-import com.example.movieapproomsql.Adapter.ReportTwoAdapter
-import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
 import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceObject
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.ObjectMinus
-import com.example.xarajatlarhisobi.Models.Report
-import com.example.xarajatlarhisobi.databinding.ActivityObjectMinusBinding
+import com.example.xarajatlarhisobi.databinding.ActivityAloneDataBinding
 
-class ObjectMinusActivity : AppCompatActivity() {
+class AloneDataActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityObjectMinusBinding
+
+    lateinit var binding: ActivityAloneDataBinding
 
     lateinit var appDatabase: AppDatabase
+
     lateinit var list: ArrayList<ObjectMinus>
     lateinit var listTwo: ArrayList<ObjectMinus>
 
@@ -29,7 +27,7 @@ class ObjectMinusActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityObjectMinusBinding.inflate(layoutInflater, null, false)
+        binding = ActivityAloneDataBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
 
         appDatabase = AppDatabase.getInstance(this)
@@ -48,13 +46,17 @@ class ObjectMinusActivity : AppCompatActivity() {
 
 /*        Toast.makeText(this, "${MySharedPreferenceObject.userName}\n${MySharedPreferenceObject.passwordName}", Toast.LENGTH_SHORT).show()*/
 
-        list = appDatabase.objectMinus().getObjectByList(
+        list = appDatabase.objectMinus().getObjectNameByList(
             MySharedPreferenceObject.userName.toString(),
-            MySharedPreferenceObject.passwordName.toString()
+            MySharedPreferenceObject.passwordName.toString(),
+            MySharedPreferenceObject.objectName.toString()
         ) as ArrayList<ObjectMinus>
 
 
-/*        list = appDatabase.objectMinus().getAllObjectMinus() as ArrayList<ObjectMinus>*/
+        //Toast.makeText(this, "${MySharedPreferenceObject.objectName}", Toast.LENGTH_SHORT).show()
+
+        binding.textStatistika.text = "${MySharedPreferenceObject.objectName} di sarf xarajatlari"
+
 
         list.sortByDescending {
             it.cash!!.toInt()
@@ -63,13 +65,6 @@ class ObjectMinusActivity : AppCompatActivity() {
         reportThreeAdapter = ReportThreeAdapter(list)
 
 
-/*
-        if (list.size > 3) {
-
-            binding.lavOne.visibility = View.INVISIBLE
-
-        }
-*/
 
         reportThreeAdapter.notifyDataSetChanged()
 
@@ -80,7 +75,7 @@ class ObjectMinusActivity : AppCompatActivity() {
     override fun onBackPressed() {
 
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
-            startActivity(Intent(this,HomeActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
             super.onBackPressed()
         } else {

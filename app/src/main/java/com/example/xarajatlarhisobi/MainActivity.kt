@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceRegistration
 import com.example.xarajatlarhisobi.databinding.ActivityMainBinding
@@ -30,15 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            if (MySharedPreferenceRegistration.NumberT == "{}" || MySharedPreferenceRegistration.NumberT == "0" || MySharedPreferenceRegistration.NumberT == "D") {
-                startActivity(Intent(this, RegistrationActivity::class.java))
+            if (MySharedPreferenceRegistration.NumberT == "1") {
+                startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             } else {
-                if (MySharedPreferenceRegistration.NumberT == "1") {
-                    startActivity(Intent(this, HomeActivity::class.java))
-                    finish()
-                }
+                startActivity(Intent(this, RegistrationActivity::class.java))
+                finish()
             }
+
 
         }, 2500)
 

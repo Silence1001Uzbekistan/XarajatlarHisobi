@@ -38,6 +38,14 @@ object MySharedPreferenceObject {
             }
         }
 
+    var objectName:String?
+        get() =  sharedPreferences.getString("objectName","{}")
+        set(value) = sharedPreferences.edit {
+            if (value != null){
+                it.putString("objectName",value)
+            }
+        }
+
 /*
     var listSave: ArrayList<MovieClass>
         get() = gsonStringToArray(sharedPreferences.getString("obekt", "[]")!!)

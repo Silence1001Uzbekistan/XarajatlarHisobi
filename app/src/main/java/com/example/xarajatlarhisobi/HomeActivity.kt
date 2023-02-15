@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -37,6 +38,7 @@ class HomeActivity : AppCompatActivity() {
     private var backPressedTime = 0L
 
     lateinit var objectMinus: ObjectMinus
+    lateinit var report: Report
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -188,11 +190,27 @@ class HomeActivity : AppCompatActivity() {
                     intent.putExtra("full", report.productImage)
                     intent.putExtra("date", report.productDate)
                     startActivity(intent)
+                    finish()
 
 
                 }
 
-            override fun itemCLickChange(report: Report, position: Int) {
+
+
+                override fun itemClickAlone(report: Report) {
+
+                    val intent = Intent(this@HomeActivity, AloneDataActivity::class.java)
+                    startActivity(intent)
+                    finish()
+
+                    MySharedPreferenceObject.objectName = report.objectName
+                    Log.d("ad123", "itemClickAlone:${report.objectName} ")
+                    MySharedPreferenceObject.userName = report.username
+                    MySharedPreferenceObject.passwordName = report.password
+
+                }
+
+                override fun itemCLickChange(report: Report, position: Int) {
 
                 val dialog = AlertDialog.Builder(this@HomeActivity)
                 val myDialogBinding = MyDialogBinding.inflate(layoutInflater, null, false)
@@ -285,6 +303,7 @@ class HomeActivity : AppCompatActivity() {
                             (report.productNumber!!.toInt() - dialogMinusBinding.etCash.text.toString()
                                 .toInt()).toString()
 
+                        objectMinus.objectBigName = report.objectName
                         objectMinus.username = report.username
                         objectMinus.password = report.password
 

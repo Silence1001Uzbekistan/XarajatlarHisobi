@@ -97,6 +97,17 @@
         android:text="@string/app_name"
         android:textSize="18sp" />
 
+    <Button
+        android:id="@+id/showAloneRv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/roundbuttoncircle"
+        android:fontFamily="@font/redokaneegular"
+        android:padding="10dp"
+        android:text="Bitta object xarajatlari"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
 
 
     <LinearLayout
@@ -174,7 +185,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/roundbuttoncircle"
             android:fontFamily="@font/redokaneegular"
-            android:text="Edit"
+            android:padding="10dp"
+            android:text="O'zgartirish"
             android:textColor="@color/white"
             android:textAllCaps="false" />
 
@@ -186,7 +198,8 @@
             android:textColor="@color/white"
             android:background="@drawable/roundbuttoncircle"
             android:fontFamily="@font/redokaneegular"
-            android:text="Delete"
+            android:padding="10dp"
+            android:text="O'chirish"
             android:textAllCaps="false" />
 
     </LinearLayout>

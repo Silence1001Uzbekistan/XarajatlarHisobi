@@ -17,6 +17,7 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
         @SuppressLint("SetTextI18n")
         fun onBind(report: Report, position: Int) {
 
+
             rvItemBinding.nameRv.text = report.objectName
             rvItemBinding.productNameRv.text = report.produvtName
             rvItemBinding.productTypeRv.text = report.productType
@@ -71,6 +72,13 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
 
             }
 
+
+            rvItemBinding.showAloneRv.setOnClickListener {
+
+                onMyItemClickListener.itemClickAlone(report)
+
+            }
+
         }
 
     }
@@ -97,6 +105,7 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
     interface OnMyItemClickListener {
 
         fun itemClick(report: Report)
+        fun itemClickAlone(report: Report)
         fun itemCLickChange(report: Report, position: Int)
         fun itemClickDelete(report: Report, position: Int)
         fun itemCLickChangeMinus(report: Report, position: Int)

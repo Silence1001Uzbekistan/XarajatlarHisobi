@@ -26,6 +26,8 @@ class ShowActivity : AppCompatActivity() {
     lateinit var photoURI: Uri
     lateinit var currentImagePath: String
 
+    private var backPressedTime = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityShowBinding.inflate(layoutInflater, null, false)
@@ -63,5 +65,19 @@ class ShowActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+            super.onBackPressed()
+        } else {
+            Toast.makeText(this, "Orqaga qaytish uchun ketma ket tez bosing", Toast.LENGTH_SHORT)
+                .show()
+        }
+
+        backPressedTime = System.currentTimeMillis()
+
+    }
 
 }

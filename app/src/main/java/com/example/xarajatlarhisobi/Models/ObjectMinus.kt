@@ -9,6 +9,7 @@ class ObjectMinus: Serializable {
 
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
+    var objectBigName: String? = null
     var username: String? = null
     var password: String? = null
     var objectName: String? = null
