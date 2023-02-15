@@ -10,4 +10,10 @@
         app:showAsAction="always" />
 
 
+    <item
+        android:id="@+id/usedSHowMenu"
+        android:icon="@drawable/ic_object"
+        android:title="Kalkulayator"
+        app:showAsAction="always" />
+
 </menu>

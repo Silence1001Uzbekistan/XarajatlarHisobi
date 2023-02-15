@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_edit"
     android:padding="10dp">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -32,38 +31,20 @@
         style="@style/TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mahsulot turi"
+        android:hint="Qabul qiluvchi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_login_sub_title"
-        app:startIconDrawable="@drawable/ic_product">
+        app:startIconDrawable="@drawable/ic_person">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_product_type"
+            android:id="@+id/et_username"
             android:layout_width="match_parent"
             android:inputType="textPersonName"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_username_e"
-        style="@style/TextInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mahsulot nomi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_login_sub_title"
-        app:startIconDrawable="@drawable/ic_product">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_product_name"
-            android:layout_width="match_parent"
-            android:inputType="textPersonName"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_cash"
@@ -80,9 +61,35 @@
             android:id="@+id/et_cash"
             android:layout_width="match_parent"
             android:inputType="number"
-            android:maxLength="5"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dialogNoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/primary_color"
+            android:padding="10dp"
+            android:text="Bekor qilish" />
+
+        <Button
+            android:id="@+id/dialogYesBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/primary_color"
+            android:padding="10dp"
+            android:text="Saqlash" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

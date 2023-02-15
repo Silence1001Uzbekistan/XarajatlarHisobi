@@ -293,6 +293,7 @@ class TwoActivity : AppCompatActivity() {
 
 
 
+
     }
 
     private val getTakeImageContent =

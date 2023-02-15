@@ -30,24 +30,27 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
 
             rvItemBinding.minusRv.setOnClickListener {
 
-                if (report.productNumber!!.toInt() > 0) {
+/*                if (report.productNumber!!.toInt() > 0) {
 
                     rvItemBinding.showRv.text = (report.productNumber!!.toInt() - 1).toString()
                     report.productNumber = (report.productNumber!!.toInt() - 1).toString()
                     reportDao.updateReport(report)
 
-                }
+                }*/
+
+                onMyItemClickListener.itemCLickChangeMinus(report, position)
+
 
 
             }
 
-            rvItemBinding.plusRv.setOnClickListener {
+/*            rvItemBinding.plusRv.setOnClickListener {
 
                 rvItemBinding.showRv.text = (report.productNumber!!.toInt() + 1).toString()
                 report.productNumber = (report.productNumber!!.toInt() + 1).toString()
                 reportDao.updateReport(report)
 
-            }
+            }*/
 
 
             rvItemBinding.editRv.setOnClickListener {
@@ -62,7 +65,7 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
 
             }
 
-            rvItemBinding.root.setOnClickListener {
+            rvItemBinding.imageEye.setOnClickListener {
 
                 onMyItemClickListener.itemClick(report)
 

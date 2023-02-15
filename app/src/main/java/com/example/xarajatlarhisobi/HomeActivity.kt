@@ -12,9 +12,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieapproomsql.Adapter.ReportAdapter
 import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
+import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceObject
+import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceRegistration
 import com.example.xarajatlarhisobi.Database.AppDatabase
+import com.example.xarajatlarhisobi.Models.ObjectMinus
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityHomeBinding
+import com.example.xarajatlarhisobi.databinding.DialogMinusBinding
 import com.example.xarajatlarhisobi.databinding.MyDialogBinding
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -32,6 +36,8 @@ class HomeActivity : AppCompatActivity() {
 
     private var backPressedTime = 0L
 
+    lateinit var objectMinus: ObjectMinus
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater, null, false)
@@ -40,9 +46,9 @@ class HomeActivity : AppCompatActivity() {
         appDatabase = AppDatabase.getInstance(this)
 
 
-        if (appDatabase.reportDao().getAllReport().isEmpty()){
+        if (appDatabase.reportDao().getAllReport().isEmpty()) {
             binding.textEmpty.visibility = View.VISIBLE
-        }else{
+        } else {
             binding.textEmpty.visibility = View.INVISIBLE
         }
 
@@ -162,43 +168,49 @@ class HomeActivity : AppCompatActivity() {
         super.onResume()
 
         MySharedPreferenceMovie.init(this)
+        MySharedPreferenceObject.init(this)
 
         list = appDatabase.reportDao().getReportByList(
             MySharedPreferenceMovie.user.toString(),
             MySharedPreferenceMovie.pass.toString()
         ) as ArrayList<Report>
 
-        reportAdapter = ReportAdapter(appDatabase.reportDao(),list, object : ReportAdapter.OnMyItemClickListener {
-            override fun itemClick(report: Report) {
+        objectMinus = ObjectMinus()
 
-                val intent = Intent(this@HomeActivity, ShowActivity::class.java)
-                intent.putExtra("id", report.id)
-                intent.putExtra("full", report.productImage)
-                intent.putExtra("date", report.productDate)
-                startActivity(intent)
+        reportAdapter = ReportAdapter(
+            appDatabase.reportDao(),
+            list,
+            object : ReportAdapter.OnMyItemClickListener {
+                override fun itemClick(report: Report) {
+
+                    val intent = Intent(this@HomeActivity, ShowActivity::class.java)
+                    intent.putExtra("id", report.id)
+                    intent.putExtra("full", report.productImage)
+                    intent.putExtra("date", report.productDate)
+                    startActivity(intent)
 
 
-            }
+                }
 
             override fun itemCLickChange(report: Report, position: Int) {
 
                 val dialog = AlertDialog.Builder(this@HomeActivity)
                 val myDialogBinding = MyDialogBinding.inflate(layoutInflater, null, false)
 
-                myDialogBinding.nameEt.setText(report.objectName)
-                myDialogBinding.authorsEt.setText(report.produvtName)
-                myDialogBinding.aboutEt.setText(report.productCommet)
-                myDialogBinding.dateEt.setText(report.productPrice)
+                myDialogBinding.etObject.setText(report.objectName)
+                myDialogBinding.etProductType.setText(report.productType)
+                myDialogBinding.etProductName.setText(report.produvtName)
+                myDialogBinding.etCash.setText(report.productNumber)
 
                 dialog.setView(myDialogBinding.root)
 
                 dialog.setPositiveButton("Edit", object : DialogInterface.OnClickListener {
                     override fun onClick(p0: DialogInterface?, p1: Int) {
 
-                        report.objectName = myDialogBinding.nameEt.text.toString()
-                        report.produvtName = myDialogBinding.authorsEt.text.toString()
-                        report.productCommet = myDialogBinding.aboutEt.text.toString()
-                        report.productPrice = myDialogBinding.dateEt.text.toString()
+                        report.objectName = myDialogBinding.etObject.text.toString()
+                        report.productType = myDialogBinding.etProductType.text.toString()
+                        report.produvtName = myDialogBinding.etProductName.text.toString()
+                        report.productNumber = myDialogBinding.etCash.text.toString()
 
                         appDatabase.reportDao().updateReport(report)
                         list[position] = report
@@ -249,9 +261,62 @@ class HomeActivity : AppCompatActivity() {
 
             }
 
+
             override fun itemCLickChangeMinus(report: Report, position: Int) {
 
-                reportAdapter.notifyItemChanged(position)
+                val dialog = AlertDialog.Builder(this@HomeActivity)
+                val dialogMinusBinding = DialogMinusBinding.inflate(layoutInflater, null, false)
+                dialog.setView(dialogMinusBinding.root)
+                val showMinus = dialog.show()
+
+                dialogMinusBinding.dialogNoBtn.setOnClickListener {
+
+                    showMinus.dismiss()
+
+                }
+
+                dialogMinusBinding.dialogYesBtn.setOnClickListener {
+
+                    if (report.productNumber!!.toInt() >= dialogMinusBinding.etCash.text.toString()
+                            .toInt()
+                    ) {
+
+                        report.productNumber =
+                            (report.productNumber!!.toInt() - dialogMinusBinding.etCash.text.toString()
+                                .toInt()).toString()
+
+                        objectMinus.username = report.username
+                        objectMinus.password = report.password
+
+                        objectMinus.objectName = dialogMinusBinding.etObject.text.toString()
+                        objectMinus.giveName = dialogMinusBinding.etUsername.text.toString()
+                        objectMinus.cash = dialogMinusBinding.etCash.text.toString()
+
+                        MySharedPreferenceObject.init(this@HomeActivity)
+
+                        MySharedPreferenceObject.userName = report.username
+                        MySharedPreferenceObject.passwordName = report.password
+
+                        appDatabase.objectMinus().addObjectMinus(objectMinus)
+
+
+                        appDatabase.reportDao().updateReport(report)
+                        list[position] = report
+                        reportAdapter.notifyItemChanged(position)
+                        showMinus.dismiss()
+
+
+                    } else {
+
+                        Toast.makeText(
+                            this@HomeActivity,
+                            "Tovar miqdoridan ko'p miqdor kiritildi",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                    }
+
+                }
 
             }
 
@@ -298,7 +363,13 @@ class HomeActivity : AppCompatActivity() {
                 builder.setCancelable(false)
                 builder.setPositiveButton("Ha",object : DialogInterface.OnClickListener{
                     override fun onClick(p0: DialogInterface?, p1: Int) {
-                        startActivity(Intent(this@HomeActivity,RegistrationActivity::class.java))
+
+                        MySharedPreferenceObject.userName = ""
+                        MySharedPreferenceObject.passwordName = ""
+
+                        MySharedPreferenceRegistration.NumberT = "0"
+
+                        startActivity(Intent(this@HomeActivity, RegistrationActivity::class.java))
                         finish()
                     }
                 })
@@ -311,6 +382,21 @@ class HomeActivity : AppCompatActivity() {
                 })
 
                 builder.show()
+
+
+            }
+
+
+            R.id.usedSHowMenu -> {
+
+                startActivity(Intent(this, ObjectMinusActivity::class.java))
+                finish()
+
+/*                Toast.makeText(
+                    this,
+                    "${MySharedPreferenceObject.userName}\n${MySharedPreferenceObject.passwordName}",
+                    Toast.LENGTH_SHORT
+                ).show()*/
 
 
             }

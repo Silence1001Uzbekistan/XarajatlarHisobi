@@ -6,6 +6,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
+import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceRegistration
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.Registr
 import com.example.xarajatlarhisobi.databinding.ActivityRegisterBinding
@@ -80,6 +81,9 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(this, "Ro'yxatdan o'tdinggiz", Toast.LENGTH_SHORT).show()
                         MySharedPreferenceMovie.user = binding.etUsername.text.toString()
                         MySharedPreferenceMovie.pass = binding.etPassword.text.toString()
+
+                        MySharedPreferenceRegistration.NumberT = "1"
+
                     }else{
                         Toast.makeText(this, "Ma'lumotlarni to'ldiiring", Toast.LENGTH_SHORT).show()
                     }

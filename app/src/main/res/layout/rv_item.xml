@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginHorizontal="8dp"
     android:layout_marginTop="3.5dp"
+    android:gravity="center"
     android:background="@drawable/roundedittwo"
     android:orientation="vertical"
     android:padding="8dp">
@@ -119,11 +121,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/redokaneegular"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:text="-"
                 android:textAllCaps="false"
                 android:textColor="#E53935"
-                android:textSize="40sp" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/showRv"
@@ -145,13 +147,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/redokaneegular"
-                android:gravity="center"
+                android:gravity="bottom"
                 android:text="-"
                 android:textAllCaps="false"
                 android:textColor="@color/primary_color"
-                android:textSize="15sp" />
+                android:textSize="12sp" />
 
-            <TextView
+<!--            <TextView
                 android:id="@+id/plusRv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -161,7 +163,8 @@
                 android:text="+"
                 android:textAllCaps="false"
                 android:textColor="#FDD835"
-                android:textSize="40sp" />
+                android:textSize="40sp" />-->
+
 
         </LinearLayout>
 
@@ -187,5 +190,13 @@
             android:textAllCaps="false" />
 
     </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/imageEye"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/eyes"/>
 
 </LinearLayout>
