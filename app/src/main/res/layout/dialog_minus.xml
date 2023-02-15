@@ -6,6 +6,16 @@
     android:orientation="vertical"
     android:padding="10dp">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:padding="10dp"
+        android:text="Qabul qiluvchi ma'lumotlari"
+        android:textColor="@color/primary_color" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_object"
         style="@style/TextInputLayout"
@@ -78,6 +88,7 @@
             android:layout_margin="5dp"
             android:background="@color/primary_color"
             android:padding="10dp"
+            android:textColor="@color/white"
             android:text="Bekor qilish" />
 
         <Button
@@ -87,7 +98,8 @@
             android:layout_margin="5dp"
             android:background="@color/primary_color"
             android:padding="10dp"
-            android:text="Saqlash" />
+            android:textColor="@color/white"
+            android:text="Ayirish" />
 
     </LinearLayout>
 

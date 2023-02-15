@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            if (MySharedPreferenceRegistration.NumberT == "{}" || MySharedPreferenceRegistration.NumberT == "0") {
+            if (MySharedPreferenceRegistration.NumberT == "{}" || MySharedPreferenceRegistration.NumberT == "0" || MySharedPreferenceRegistration.NumberT == "D") {
                 startActivity(Intent(this, RegistrationActivity::class.java))
                 finish()
             } else {
