@@ -23,10 +23,10 @@ object MySharedPreferenceRegistration {
 
 
     var NumberT:String?
-        get() =  sharedPreferences.getString("userName","{}")
+        get() =  sharedPreferences.getString("NumberName","{}")
         set(value) = sharedPreferences.edit {
             if (value != null){
-                it.putString("userName",value)
+                it.putString("NumberName",value)
             }
         }
 
