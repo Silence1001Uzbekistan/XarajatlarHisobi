@@ -26,6 +26,8 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import java.text.DateFormat
+import java.util.Calendar
 
 class HomeActivity : AppCompatActivity() {
 
@@ -310,6 +312,12 @@ class HomeActivity : AppCompatActivity() {
                         objectMinus.objectName = dialogMinusBinding.etObject.text.toString()
                         objectMinus.giveName = dialogMinusBinding.etUsername.text.toString()
                         objectMinus.cash = dialogMinusBinding.etCash.text.toString()
+
+                        val time = Calendar.getInstance().time
+                        val timeD = DateFormat.getDateInstance(DateFormat.FULL).format(time)
+                        val timeF = DateFormat.getTimeInstance().format(time)
+
+                        objectMinus.dateName = "$timeD\n$timeF"
 
                         MySharedPreferenceObject.init(this@HomeActivity)
 

@@ -100,7 +100,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tabLayout"
-                tools:listitem="@layout/rv_two_item" />
+                tools:listitem="@layout/rv_three_item" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

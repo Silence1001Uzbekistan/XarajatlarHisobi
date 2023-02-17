@@ -15,5 +15,6 @@ class ObjectMinus: Serializable {
     var objectName: String? = null
     var giveName: String? = null
     var cash:String? = null
+    var dateName:String? = null
 
 }
