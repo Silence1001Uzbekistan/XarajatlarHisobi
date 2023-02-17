@@ -2,6 +2,7 @@
 package com.example.movieapproomsql.Adapter
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import com.example.xarajatlarhisobi.Dao.ReportDao
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -21,12 +22,14 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
             rvItemBinding.nameRv.text = report.objectName
             rvItemBinding.productNameRv.text = report.produvtName
             rvItemBinding.productTypeRv.text = report.productType
-            rvItemBinding.dateRv.text = report.productPrice
+          //  rvItemBinding.dateRv.text = report.productPrice
 
             rvItemBinding.showRv.text = report.productNumber
             rvItemBinding.lengthRv.text = report.productLength
 
-            rvItemBinding.dateHome.text = report.productDate
+          //  rvItemBinding.dateHome.text = report.productDate
+
+            rvItemBinding.imageRV.setImageURI(Uri.parse(report.productImage))
 
 
             rvItemBinding.minusRv.setOnClickListener {
