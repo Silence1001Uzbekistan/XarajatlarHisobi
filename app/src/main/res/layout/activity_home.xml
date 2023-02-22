@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/leaf"
+    android:background="@color/greyOne"
     tools:context=".HomeActivity">
 
     <RelativeLayout
@@ -50,8 +50,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bottom_navigation"
-                app:itemIconTint="@color/primary_color"
-                app:itemTextColor="@color/primary_color"
+                app:backgroundTint="@color/dark_grey"
+                app:itemIconTint="@color/white"
+                app:labelVisibilityMode="unlabeled"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

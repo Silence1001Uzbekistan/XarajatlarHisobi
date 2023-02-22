@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/greyOne"
     tools:context=".ObjectMinusActivity">
 
     <RelativeLayout
@@ -27,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Barcha xarajatlar"
-                android:textColor="#00838F"
+                android:textColor="@color/white"
                 android:textSize="30sp"
                 app:layout_constraintBottom_toTopOf="@id/tabLayout"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -60,7 +61,7 @@
                             android:gravity="left|center"
                             android:padding="10dp"
                             android:text="Kompaniya Nomi"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/textTwo"
@@ -70,7 +71,7 @@
                             android:gravity="center|right"
                             android:padding="10dp"
                             android:text="Qabul qiluvchi"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/textThree"
@@ -80,7 +81,7 @@
                             android:gravity="center|right"
                             android:padding="10dp"
                             android:text="Miqdor"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                     </TableRow>
 

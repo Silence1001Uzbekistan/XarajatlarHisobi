@@ -27,7 +27,7 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
             rvItemBinding.showRv.text = report.productNumber
             rvItemBinding.lengthRv.text = report.productLength
 
-          //  rvItemBinding.dateHome.text = report.productDate
+           rvItemBinding.dataRv.text = report.productDate
 
             rvItemBinding.imageRV.setImageURI(Uri.parse(report.productImage))
 
