@@ -12,7 +12,6 @@ class ObjectMinus: Serializable {
     var objectBigName: String? = null
     var username: String? = null
     var password: String? = null
-    var objectName: String? = null
     var giveName: String? = null
     var cash:String? = null
     var dateName:String? = null

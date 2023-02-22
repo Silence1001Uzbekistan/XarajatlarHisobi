@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/addleaf"
+    android:background="@color/greyOne"
     tools:context=".TwoActivity">
 
     <RelativeLayout
@@ -35,6 +35,8 @@
                     android:hint="  Obyekt nomini kiriting"
                     android:inputType="text"
                     android:padding="4dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     app:layout_constraintBottom_toTopOf="@id/productTypeId"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -56,11 +58,13 @@
                 <EditText
                     android:id="@+id/productNameId"
                     android:layout_width="0dp"
-                    android:drawableStart="@drawable/ic_productname"
                     android:layout_height="0dp"
+                    android:drawableStart="@drawable/ic_productname"
                     android:hint="  Mahsulot nomini kiriting"
                     android:inputType="text"
-                    app:layout_constraintBottom_toTopOf="@id/llTwo"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintBottom_toTopOf="@id/llpn"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -68,11 +72,11 @@
                     app:layout_constraintVertical_bias="0.3" />
 
                 <LinearLayout
-                    android:id="@+id/llTwo"
+                    android:id="@+id/llpn"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toTopOf="@id/llpn"
+                    app:layout_constraintBottom_toTopOf="@id/llTwo"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -80,34 +84,31 @@
                     app:layout_constraintVertical_bias="0.4">
 
                     <EditText
-                        android:id="@+id/productPriceId"
+                        android:id="@+id/productNumberId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:drawableLeft="@drawable/ic_money"
-                        android:layout_weight="1.5"
-                        android:maxLength="7"
-                        android:gravity="left|center_vertical"
-                        android:hint="  Narxi(so'm)"
-                        android:inputType="number"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/student_date_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
+                        android:layout_weight="1"
                         android:gravity="center"
-                        android:hint="-/-/----"
-                        android:padding="16dp"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        app:drawableEndCompat="@drawable/ic_vectorkalendar" />
+                        android:hint="Mahsulot sonini kiriting"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        app:layout_constraintHeight_percent="0.1"
+                        app:layout_constraintVertical_bias="0.5" />
+
+                    <Spinner
+                        android:id="@+id/productLengthSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2" />
 
 
                 </LinearLayout>
 
+
                 <LinearLayout
-                    android:id="@+id/llpn"
+                    android:id="@+id/llTwo"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:orientation="horizontal"
@@ -119,26 +120,35 @@
                     app:layout_constraintVertical_bias="0.4">
 
                     <EditText
-                        android:id="@+id/productNumberId"
+                        android:id="@+id/productPriceId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:hint="Mahsulot sonini kiriting"
+                        android:layout_weight="1.5"
+                        android:drawableLeft="@drawable/ic_money"
+                        android:gravity="left|center_vertical"
+                        android:hint="  Narxi(so'm)"
                         android:inputType="number"
-                        android:textColor="@color/black"
-                        android:maxLength="5"
-                        app:layout_constraintHeight_percent="0.1"
-                        app:layout_constraintVertical_bias="0.5" />
+                        android:maxLength="7"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="15sp" />
 
-                    <Spinner
-                        android:id="@+id/productLengthSpinner"
-                        android:layout_weight="2"
+                    <TextView
+                        android:id="@+id/student_date_et"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:hint="-/-/----"
+                        android:padding="16dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="17sp"
+                        app:drawableEndCompat="@drawable/ic_vectorkalendar" />
 
 
                 </LinearLayout>
+
 
 
                 <EditText
@@ -148,7 +158,8 @@
                     android:gravity="center"
                     android:hint="Commentariya kiritishinggiz mumkin"
                     android:inputType="text"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
                     app:layout_constraintBottom_toTopOf="@id/productImageId"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -160,8 +171,8 @@
                     android:id="@+id/productImageId"
                     android:layout_width="120dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_camera"
                     android:scaleType="fitXY"
+                    android:src="@drawable/ic_camera"
                     app:layout_constraintBottom_toTopOf="@id/productSave"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintHorizontal_bias="0.473"
@@ -173,18 +184,18 @@
                 <Button
                     android:id="@+id/productSave"
                     android:layout_width="0dp"
+                    android:layout_margin="5dp"
                     android:layout_height="0dp"
+                    android:background="@color/dark_grey"
+                    android:text="Ma'lumotni saqlash"
+                    android:textColor="@color/white"
                     android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHeight_percent="0.1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/productImageId"
-                    app:layout_constraintVertical_bias="0.7"
-                    android:background="@color/primary_color"
-                    android:text="Ma'lumotni saqlash"
-                    android:textColor="@color/white"
-                     />
+                    app:layout_constraintVertical_bias="0.7" />
 
                 <TextView
                     android:id="@+id/textSave"
@@ -192,7 +203,7 @@
                     android:layout_height="0dp"
                     android:gravity="top|center"
                     android:text="Mahsulotni rasmga oling"
-                    android:textColor="@color/primary_color"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -209,8 +220,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bottom_navigation"
-                app:itemIconTint="@color/primary_color"
-                app:itemTextColor="@color/primary_color"
+                app:backgroundTint="@color/dark_grey"
+                app:itemIconTint="@color/white"
+                app:labelVisibilityMode="unlabeled"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -309,7 +309,7 @@ class HomeActivity : AppCompatActivity() {
                         objectMinus.username = report.username
                         objectMinus.password = report.password
 
-                        objectMinus.objectName = dialogMinusBinding.etObject.text.toString()
+                       // objectMinus.objectName = dialogMinusBinding.etObject.text.toString()
                         objectMinus.giveName = dialogMinusBinding.etUsername.text.toString()
                         objectMinus.cash = dialogMinusBinding.etCash.text.toString()
 

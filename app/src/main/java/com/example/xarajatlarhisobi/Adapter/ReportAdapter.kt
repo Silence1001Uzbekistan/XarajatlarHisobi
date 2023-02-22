@@ -19,7 +19,7 @@ class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var on
         fun onBind(report: Report, position: Int) {
 
 
-            rvItemBinding.nameRv.text = report.objectName
+            rvItemBinding.nameRv.text = report.objectName!!.toUpperCase()
             rvItemBinding.productNameRv.text = report.produvtName
             rvItemBinding.productTypeRv.text = report.productType
           //  rvItemBinding.dateRv.text = report.productPrice

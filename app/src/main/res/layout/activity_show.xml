@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/leafshowsh"
+    android:background="@color/greyOne"
     tools:context=".ShowActivity">
 
     <RelativeLayout
@@ -36,7 +36,7 @@
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="Obyekt ma'lumotlar"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
                         android:gravity="left"
                         android:padding="5dp"
                         android:text="Obyekt nomi"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="30sp" />
 
                     <TextView
@@ -62,7 +62,7 @@
                         android:padding="5dp"
                         android:fontFamily="@font/berkshireswashregular"
                         android:text="-----------------"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="25sp" />
 
 
@@ -72,7 +72,7 @@
                         android:gravity="left"
                         android:padding="5dp"
                         android:text="Mahsulot nomi"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="30sp" />
 
                     <TextView
@@ -83,7 +83,7 @@
                         android:fontFamily="@font/berkshireswashregular"
                         android:padding="10dp"
                         android:text="-----------------"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
 
@@ -93,7 +93,7 @@
                         android:gravity="left"
                         android:padding="5dp"
                         android:text="Mahsulot turi"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="30sp" />
 
                     <TextView
@@ -104,7 +104,7 @@
                         android:padding="10dp"
                         android:fontFamily="@font/berkshireswashregular"
                         android:text="-----------------"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                     <TextView
@@ -113,7 +113,7 @@
                         android:gravity="left"
                         android:padding="5dp"
                         android:text="Mahsulot narxi"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="30sp" />
 
                     <TextView
@@ -124,7 +124,7 @@
                         android:padding="10dp"
                         android:fontFamily="@font/berkshireswashregular"
                         android:text="-----------------"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                     <TextView
@@ -133,7 +133,7 @@
                         android:gravity="left"
                         android:padding="5dp"
                         android:text="Mahsulot saqlangan sanasi"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="30sp" />
 
                     <TextView
@@ -144,7 +144,7 @@
                         android:fontFamily="@font/berkshireswashregular"
                         android:padding="5dp"
                         android:text="-----------------"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="30sp" />
 
 
@@ -155,7 +155,7 @@
                         android:gravity="left"
                         android:padding="5dp"
                         android:text="Komentariya"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="30sp" />
 
                     <TextView
@@ -166,7 +166,7 @@
                         android:padding="10dp"
                         android:fontFamily="@font/berkshireswashregular"
                         android:text="-----------------"
-                        android:textColor="@color/primary_color"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
 

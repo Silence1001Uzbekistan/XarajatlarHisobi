@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/greyOne"
     android:padding="10dp">
 
 
@@ -14,26 +15,7 @@
         android:textSize="25sp"
         android:padding="10dp"
         android:text="Xaridor ma'lumotlari"
-        android:textColor="@color/primary_color" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_object"
-        style="@style/TextInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Object"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_login_sub_title"
-        app:startIconDrawable="@drawable/ic_object">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_object"
-            android:layout_width="match_parent"
-            android:inputType="textPersonName"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:textColor="@color/white" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@color/primary_color"
+            android:background="@color/dark_grey"
             android:padding="10dp"
             android:textColor="@color/white"
             android:text="Bekor qilish" />
@@ -96,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@color/primary_color"
+            android:background="@color/dark_grey"
             android:padding="10dp"
             android:textColor="@color/white"
             android:text="Ayirish" />

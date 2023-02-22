@@ -16,7 +16,7 @@ class ReportThreeAdapter(var list: ArrayList<ObjectMinus>) :
 
         fun onBind(objectMinus: ObjectMinus, position: Int) {
 
-            rvThreeItemBinding.objectNameTwo.text = objectMinus.objectName
+            //rvThreeItemBinding.objectNameTwo.text = objectMinus.objectName
             rvThreeItemBinding.userNameTwo.text = objectMinus.giveName
             rvThreeItemBinding.productPriceTwo.text = objectMinus.cash
             rvThreeItemBinding.textDate.text = objectMinus.dateName

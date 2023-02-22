@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/greyOne"
     tools:context=".FourActivity">
 
     <RelativeLayout
@@ -29,41 +30,45 @@
                 <ImageView
                     android:layout_width="150dp"
                     android:layout_height="200dp"
-                    android:src="@drawable/androidimage"
                     android:scaleType="centerCrop"
-                    />
+                    android:src="@drawable/androidimage" />
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="V1.0.0" />
+                    android:text="V1.0.0"
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Ad personalization" />
+                    android:text="Ad personalization"
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Terms $ Condition" />
+                    android:text="Terms $ Condition"
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="Privacy Policy" />
+                    android:text="Privacy Policy"
+                    android:textColor="@color/white" />
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="2023 All Rights Reserved\nDelight Room Co LTD" />
+                    android:text="2023 All Rights Reserved\nDelight Room Co LTD"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -72,13 +77,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bottom_navigation"
-                app:itemIconTint="@color/primary_color"
-                app:itemTextColor="@color/primary_color"
+                app:backgroundTint="@color/dark_grey"
+                app:itemIconTint="@color/white"
+                app:labelVisibilityMode="unlabeled"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:menu="@menu/bottom_menu" />
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
