@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        }, 2500)
+        }, 2000)
 
        // binding.textM.animation = AnimationUtils.loadAnimation(this,R.anim.anim_one)
 
