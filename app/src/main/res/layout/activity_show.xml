@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/greyOne"
+    android:orientation="vertical"
     tools:context=".ShowActivity">
 
     <RelativeLayout
@@ -52,39 +52,18 @@
                         android:padding="5dp"
                         android:text="Obyekt nomi"
                         android:textColor="@color/white"
-                        android:textSize="30sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/objectName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:fontFamily="@font/berkshireswashregular"
-                        android:text="-----------------"
-                        android:textColor="@color/white"
-                        android:textSize="25sp" />
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:gravity="left"
                         android:padding="5dp"
-                        android:text="Mahsulot nomi"
-                        android:textColor="@color/white"
-                        android:textSize="30sp" />
-
-                    <TextView
-                        android:id="@+id/productName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:fontFamily="@font/berkshireswashregular"
-                        android:padding="10dp"
                         android:text="-----------------"
                         android:textColor="@color/white"
-                        android:textSize="20sp" />
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
 
 
                     <TextView
@@ -94,59 +73,81 @@
                         android:padding="5dp"
                         android:text="Mahsulot turi"
                         android:textColor="@color/white"
-                        android:textSize="30sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/productType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:padding="10dp"
-                        android:fontFamily="@font/berkshireswashregular"
                         android:text="-----------------"
                         android:textColor="@color/white"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
                         android:padding="5dp"
-                        android:text="Mahsulot narxi"
-                        android:textColor="@color/white"
-                        android:textSize="30sp" />
-
-                    <TextView
-                        android:id="@+id/productPrice"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:fontFamily="@font/berkshireswashregular"
-                        android:text="-----------------"
+                        android:text="Mahsulot nomi"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/productName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:padding="5dp"
-                        android:text="Mahsulot saqlangan sanasi"
-                        android:textColor="@color/white"
-                        android:textSize="30sp" />
-
-                    <TextView
-                        android:id="@+id/objectDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:fontFamily="@font/berkshireswashregular"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:text="-----------------"
                         android:textColor="@color/white"
-                        android:textSize="30sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="10dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:padding="5dp"
+                            android:text="Mahsulot narxi:"
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/productPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="-----------------"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <!--
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="left"
+                                            android:padding="5dp"
+                                            android:text="Mahsulot saqlangan sanasi"
+                                            android:textColor="@color/white"
+                                            android:textSize="20sp" />
+                    -->
 
 
                     <TextView
@@ -156,19 +157,39 @@
                         android:padding="5dp"
                         android:text="Komentariya"
                         android:textColor="@color/white"
-                        android:textSize="30sp" />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/productComment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:gravity="left"
                         android:padding="10dp"
-                        android:fontFamily="@font/berkshireswashregular"
                         android:text="-----------------"
                         android:textColor="@color/white"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="right">
+
+                        <TextView
+                            android:id="@+id/objectDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="-----------------"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

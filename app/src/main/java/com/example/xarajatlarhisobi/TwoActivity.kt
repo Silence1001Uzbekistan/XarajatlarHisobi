@@ -339,7 +339,7 @@ class TwoActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
 
-        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+        if (backPressedTime + 3000 > System.currentTimeMillis()) {
             finish()
             super.onBackPressed()
         } else {

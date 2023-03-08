@@ -55,7 +55,7 @@ class AloneDataActivity : AppCompatActivity() {
 
         //Toast.makeText(this, "${MySharedPreferenceObject.objectName}", Toast.LENGTH_SHORT).show()
 
-        binding.textStatistika.text = "${MySharedPreferenceObject.objectName} di sarf xarajatlari"
+        //binding.textStatistika.text = "${MySharedPreferenceObject.objectName} di sarf xarajatlari"
 
 
         list.sortByDescending {
@@ -72,7 +72,7 @@ class AloneDataActivity : AppCompatActivity() {
 
     }
 
-    override fun onBackPressed() {
+/*    override fun onBackPressed() {
 
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             startActivity(Intent(this, HomeActivity::class.java))
@@ -85,7 +85,7 @@ class AloneDataActivity : AppCompatActivity() {
 
         backPressedTime = System.currentTimeMillis()
 
-    }
+    }*/
 
 
 }

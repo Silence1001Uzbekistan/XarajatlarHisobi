@@ -27,7 +27,7 @@
                 android:id="@+id/textStatistika"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alohida xarajatlar"
+                android:text="Foydalanish tarixi"
                 android:textColor="#00838F"
                 android:textSize="20sp"
                 android:padding="10dp"
@@ -53,6 +53,7 @@
                     android:background="@color/white">
 
                     <TableRow android:background="#058676">
+<!--
 
                         <TextView
                             android:id="@+id/textOne"
@@ -63,13 +64,14 @@
                             android:padding="10dp"
                             android:text="Kompaniya Nomi"
                             android:textColor="@color/black" />
+-->
 
                         <TextView
                             android:id="@+id/textTwo"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
-                            android:gravity="center|right"
+                            android:gravity="center"
                             android:padding="10dp"
                             android:text="Qabul qiluvchi"
                             android:textColor="@color/black" />
@@ -79,7 +81,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
-                            android:gravity="center|right"
+                            android:gravity="center"
                             android:padding="10dp"
                             android:text="Miqdor"
                             android:textColor="@color/black" />

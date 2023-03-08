@@ -181,7 +181,7 @@ class HomeActivity : AppCompatActivity() {
 
         objectMinus = ObjectMinus()
 
-        reportAdapter = ReportAdapter(
+        reportAdapter = ReportAdapter(this,
             appDatabase.reportDao(),
             list,
             object : ReportAdapter.OnMyItemClickListener {
@@ -192,7 +192,6 @@ class HomeActivity : AppCompatActivity() {
                     intent.putExtra("full", report.productImage)
                     intent.putExtra("date", report.productDate)
                     startActivity(intent)
-                    finish()
 
 
                 }
@@ -203,7 +202,6 @@ class HomeActivity : AppCompatActivity() {
 
                     val intent = Intent(this@HomeActivity, AloneDataActivity::class.java)
                     startActivity(intent)
-                    finish()
 
                     MySharedPreferenceObject.objectName = report.objectName
                     Log.d("ad123", "itemClickAlone:${report.objectName} ")
@@ -315,9 +313,9 @@ class HomeActivity : AppCompatActivity() {
 
                         val time = Calendar.getInstance().time
                         val timeD = DateFormat.getDateInstance(DateFormat.FULL).format(time)
-                        val timeF = DateFormat.getTimeInstance().format(time)
+                        //val timeF = DateFormat.getTimeInstance().format(time)
 
-                        objectMinus.dateName = "$timeD\n$timeF"
+                        objectMinus.dateName = "$timeD"
 
                         MySharedPreferenceObject.init(this@HomeActivity)
 
@@ -414,19 +412,19 @@ class HomeActivity : AppCompatActivity() {
             }
 
 
-            R.id.usedSHowMenu -> {
+/*            R.id.usedSHowMenu -> {
 
                 startActivity(Intent(this, ObjectMinusActivity::class.java))
                 finish()
 
-/*                Toast.makeText(
+*//*                Toast.makeText(
                     this,
                     "${MySharedPreferenceObject.userName}\n${MySharedPreferenceObject.passwordName}",
                     Toast.LENGTH_SHORT
-                ).show()*/
+                ).show()*//*
 
 
-            }
+            }*/
 
         }
 

@@ -65,6 +65,7 @@ class ShowActivity : AppCompatActivity() {
 
     }
 
+/*
     override fun onBackPressed() {
 
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
@@ -79,5 +80,6 @@ class ShowActivity : AppCompatActivity() {
         backPressedTime = System.currentTimeMillis()
 
     }
+*/
 
 }

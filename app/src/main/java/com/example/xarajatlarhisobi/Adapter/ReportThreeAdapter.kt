@@ -3,11 +3,9 @@ package com.example.movieapproomsql.Adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceType
 import com.example.xarajatlarhisobi.Models.ObjectMinus
-import com.example.xarajatlarhisobi.Models.Report
-import com.example.xarajatlarhisobi.databinding.RvItemBinding
 import com.example.xarajatlarhisobi.databinding.RvThreeItemBinding
-import com.example.xarajatlarhisobi.databinding.RvTwoItemBinding
 
 class ReportThreeAdapter(var list: ArrayList<ObjectMinus>) :
     RecyclerView.Adapter<ReportThreeAdapter.Vh>() {
@@ -18,7 +16,7 @@ class ReportThreeAdapter(var list: ArrayList<ObjectMinus>) :
 
             //rvThreeItemBinding.objectNameTwo.text = objectMinus.objectName
             rvThreeItemBinding.userNameTwo.text = objectMinus.giveName
-            rvThreeItemBinding.productPriceTwo.text = objectMinus.cash
+            rvThreeItemBinding.productPriceTwo.text = "${objectMinus.cash} ${MySharedPreferenceType.productTypeCache}"
             rvThreeItemBinding.textDate.text = objectMinus.dateName
 
         }

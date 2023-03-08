@@ -2,30 +2,38 @@
 package com.example.movieapproomsql.Adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.net.Uri
 import com.example.xarajatlarhisobi.Dao.ReportDao
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceType
 import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.RvItemBinding
+import kotlin.coroutines.coroutineContext
 
-class ReportAdapter(var reportDao: ReportDao,var list: ArrayList<Report>, var onMyItemClickListener: OnMyItemClickListener) :
+class ReportAdapter(var context: Context,var reportDao: ReportDao,var list: ArrayList<Report>, var onMyItemClickListener: OnMyItemClickListener) :
     RecyclerView.Adapter<ReportAdapter.Vh>() {
 
     inner class Vh(var rvItemBinding: RvItemBinding) : RecyclerView.ViewHolder(rvItemBinding.root) {
 
+
         @SuppressLint("SetTextI18n")
         fun onBind(report: Report, position: Int) {
 
+            MySharedPreferenceType.init(context)
 
             rvItemBinding.nameRv.text = report.objectName!!.toUpperCase()
             rvItemBinding.productNameRv.text = report.produvtName
             rvItemBinding.productTypeRv.text = report.productType
           //  rvItemBinding.dateRv.text = report.productPrice
 
+
             rvItemBinding.showRv.text = report.productNumber
             rvItemBinding.lengthRv.text = report.productLength
+
+            MySharedPreferenceType.productTypeCache = report.productLength
 
            rvItemBinding.dataRv.text = report.productDate
 

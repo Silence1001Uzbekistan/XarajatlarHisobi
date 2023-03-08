@@ -3,16 +3,12 @@ package com.example.xarajatlarhisobi
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieapproomsql.Adapter.ReportThreeAdapter
-import com.example.movieapproomsql.Adapter.ReportTwoAdapter
-import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceMovie
 import com.example.movieappviewbindingandcache.Cache.MySharedPreferenceObject
 import com.example.xarajatlarhisobi.Database.AppDatabase
 import com.example.xarajatlarhisobi.Models.ObjectMinus
-import com.example.xarajatlarhisobi.Models.Report
 import com.example.xarajatlarhisobi.databinding.ActivityObjectMinusBinding
 
 class ObjectMinusActivity : AppCompatActivity() {
