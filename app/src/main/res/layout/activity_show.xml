@@ -50,7 +50,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="left"
                         android:padding="5dp"
-                        android:text="Obyekt nomi"
+                        android:text="Obyekt nomi : "
+                        android:textStyle="bold"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
@@ -71,7 +72,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="left"
                         android:padding="5dp"
-                        android:text="Mahsulot turi"
+                        android:textStyle="bold"
+                        android:text="Mahsulot turi :"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
@@ -92,8 +94,9 @@
                         android:layout_height="wrap_content"
                         android:gravity="left"
                         android:padding="5dp"
-                        android:text="Mahsulot nomi"
+                        android:text="Mahsulot nomi :"
                         android:textColor="@color/white"
+                        android:textStyle="bold"
                         android:textSize="20sp" />
 
                     <TextView
@@ -119,6 +122,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="left"
                             android:padding="5dp"
+                            android:textStyle="bold"
                             android:text="Mahsulot narxi:"
                             android:textColor="@color/white"
                             android:textSize="20sp" />

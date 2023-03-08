@@ -52,7 +52,7 @@
                     android:maxLines="1"
                     android:text="@string/app_name"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/productNameRv"
@@ -64,7 +64,7 @@
                     android:maxLines="1"
                     android:text="@string/app_name"
                     android:textColor="@color/white"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
 
 
             </LinearLayout>

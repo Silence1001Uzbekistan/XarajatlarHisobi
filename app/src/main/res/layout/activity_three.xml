@@ -60,7 +60,7 @@
                             android:layout_weight="4"
                             android:gravity="left|center"
                             android:padding="10dp"
-                            android:text="KOMPANIYA NOMI"
+                            android:text="OBYEKT NOMI"
                             android:textColor="@color/white"
                             />
 
